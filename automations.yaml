@@ -1,1 +1,12 @@
-[]
+
+  # Set the initial theme for some assistant:
+  # See here: https://www.home-assistant.io/integrations/frontend/#themes
+  - alias: 'Set theme at startup'
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: midnight
+

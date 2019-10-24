@@ -1,0 +1,147 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "url": "/home/homeassistant/.homeassistant/community_plugins/travel-time-card.js"
+                },
+                {
+                    "type": "js"
+                }
+            ],
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "binary_sensor.remote_ui",
+                        "person.heckler_2",
+                        "sensor.balcony_temperature",
+                        "sensor.yr_symbol",
+                        "sensor.balcony_humidity",
+                        "sensor.heckler_s_iphone_battery_state",
+                        "sensor.heckler_s_iphone_battery_level",
+                        "sun.sun"
+                    ],
+                    "cards": [
+                        {
+                            "entity": "weather.weather_1",
+                            "name": "Met Weather",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                "sensor.balcony_temperature"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entity": "weather.weather_2",
+                            "name": "DarkSky Weather",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.waze_travel_time"
+                                }
+                            ],
+                            "name": "Travel Time",
+                            "type": "custom:travel-time-card"
+                        },
+                        {
+                            "entity": "sensor.processor_use",
+                            "max": 100,
+                            "min": 0,
+                            "name": "CPU",
+                            "severity": {
+                                "green": 0,
+                                "red": 80,
+                                "yellow": 60
+                            },
+                            "theme": "default",
+                            "type": "gauge",
+                            "unit": "%"
+                        },
+                        {
+                            "entity": "sensor.memory_use_percent",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Memory",
+                            "severity": {
+                                "green": 0,
+                                "red": 80,
+                                "yellow": 60
+                            },
+                            "theme": "default",
+                            "type": "gauge",
+                            "unit": "%"
+                        },
+                        {
+                            "entity": "sensor.disk_use_percent",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Disk (root)",
+                            "severity": {
+                                "green": 0,
+                                "red": 80,
+                                "yellow": 50
+                            },
+                            "theme": "default",
+                            "type": "gauge",
+                            "unit": "%"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.all_speakers",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.all_devices",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.bedroom_tv_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.kitchen_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_speaker",
+                            "type": "media-control"
+                        }
+                    ],
+                    "title": "Media"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "updater.updater"
+                            ],
+                            "title": "Updater",
+                            "type": "entities"
+                        }
+                    ],
+                    "title": "Misc"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

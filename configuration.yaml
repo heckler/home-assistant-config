@@ -53,9 +53,9 @@ sensor:
   # using a card from: https://github.com/ljmerza/travel-time-card
   - platform: waze_travel_time
     name: NH to POA
-    origin: ***REMOVED***,***REMOVED***
-    destination: ***REMOVED***,***REMOVED***
-    region: 'US'
+    origin: ***REMOVED***, ***REMOVED***
+    destination: ***REMOVED***, ***REMOVED***
+    region: 'EU'
 
   # System monitor: CPU, Memory and disk:
   - platform: systemmonitor
@@ -80,6 +80,19 @@ sensor:
 # Text to speech
 tts:
   - platform: google
+
+
+
+# ----------------------------------------------------------------------------------
+# iFrame panel: extra links
+# info: https://www.home-assistant.io/integrations/panel_iframe/
+# ----------------------------------------------------------------------------------
+panel_iframe:
+  emon_cms:
+    title: 'EmonCMS'
+    url: 'http://192.168.6.9/emoncms/dashboard/view/cah'
+
+
 
 group: !include groups.yaml
 automation: !include automations.yaml

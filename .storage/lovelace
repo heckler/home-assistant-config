@@ -3,10 +3,8 @@
         "config": {
             "resources": [
                 {
-                    "url": "/home/homeassistant/.homeassistant/community_plugins/travel-time-card.js"
-                },
-                {
-                    "type": "js"
+                    "type": "js",
+                    "url": "/local/travel-time-card.js"
                 }
             ],
             "title": "Home",
@@ -17,9 +15,9 @@
                         "person.heckler_2",
                         "sensor.balcony_temperature",
                         "sensor.yr_symbol",
-                        "sensor.balcony_humidity",
-                        "sensor.heckler_s_iphone_battery_state",
-                        "sensor.heckler_s_iphone_battery_level",
+                        "sensor.processor_use",
+                        "sensor.memory_use_percent",
+                        "sensor.disk_use_percent",
                         "sun.sun"
                     ],
                     "cards": [
@@ -95,6 +93,57 @@
                     "panel": false,
                     "path": "default_view",
                     "title": "Home"
+                },
+                {
+                    "badges": [
+                        "sensor.emoncms_node_emontx3_a_powera",
+                        "sensor.emoncms_node_emontx3_b_powerb",
+                        "sensor.emoncms_node_emontx3_c_powerc"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.emoncms_node_emontx3_a_powera",
+                                "sensor.emoncms_node_emontx3_b_powerb",
+                                "sensor.emoncms_node_emontx3_c_powerc"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.emoncms_node_emontx3_a_powera"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.emoncms_node_emontx3_b_powerb"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.emoncms_node_emontx3_c_powerc"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        }
+                    ],
+                    "title": "Energy"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "100%",
+                            "type": "iframe",
+                            "url": "https://embed.waze.com/iframe?zoom=12&lat=***REMOVED***&lon=***REMOVED***"
+                        }
+                    ],
+                    "title": "Map"
                 },
                 {
                     "badges": [],

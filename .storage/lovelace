@@ -41,7 +41,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.waze_travel_time"
+                                    "entity": "sensor.nh_to_poa"
                                 }
                             ],
                             "name": "Travel Time",
@@ -88,6 +88,13 @@
                             "theme": "default",
                             "type": "gauge",
                             "unit": "%"
+                        },
+                        {
+                            "entities": [
+                                "sensor.nh_to_poa"
+                            ],
+                            "hours_to_show": 24,
+                            "type": "history-graph"
                         }
                     ],
                     "panel": false,

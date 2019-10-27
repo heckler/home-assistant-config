@@ -2,10 +2,10 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: -29.6818966
-  longitude: -51.1343719
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 50
+  elevation: !secret home_elevation
   # metric for Metric, imperial for Imperial
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -34,7 +34,7 @@ frontend:
 weather:
   - platform: darksky
     name: weather-1
-    api_key: f00d9a715142a3304c014124877fcb73
+    api_key: !secret darksky_api_key
   - platform: met
     name: weather-2
 
@@ -53,8 +53,8 @@ sensor:
   # using a card from: https://github.com/ljmerza/travel-time-card
   - platform: waze_travel_time
     name: NH to POA
-    origin: -29.6818966, -51.1343719
-    destination: -30.059478, -51.1715432
+    origin: !secret home_latitude, !secret home_longitude
+    destination: !secret work_latitude, !secret work_longitude
     region: 'EU'
 
   # System monitor: CPU, Memory and disk:
@@ -70,7 +70,7 @@ sensor:
   # EmonCMS, CAH 2019-10-25
   # info: https://www.home-assistant.io/integrations/emoncms
   - platform: emoncms
-    api_key: 480bf8c6e2cebe6106a6a1c0acba6649
+    api_key: !secret emoncms_api_key
     url: http://192.168.6.9/emoncms/
     id: 1
     scan_interval: 5

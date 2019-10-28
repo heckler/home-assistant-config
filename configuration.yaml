@@ -53,8 +53,18 @@ sensor:
   # using a card from: https://github.com/ljmerza/travel-time-card
   - platform: waze_travel_time
     name: NH to POA
-    origin: !secret home_latitude, !secret home_longitude
-    destination: !secret work_latitude, !secret work_longitude
+    origin: !secret home_coordinates
+    destination: !secret work_coordinates
+    region: 'EU'
+  - platform: waze_travel_time
+    name: POA to NH
+    origin: !secret work_coordinates
+    destination: !secret home_coordinates
+    region: 'EU'
+  - platform: waze_travel_time
+    name: NH to Chacara
+    origin: !secret home_coordinates
+    destination: !secret chacara_coordinates
     region: 'EU'
 
   # System monitor: CPU, Memory and disk:

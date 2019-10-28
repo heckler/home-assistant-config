@@ -42,6 +42,12 @@
                             "entities": [
                                 {
                                     "entity": "sensor.nh_to_poa"
+                                },
+                                {
+                                    "entity": "sensor.poa_to_nh"
+                                },
+                                {
+                                    "entity": "sensor.nh_to_chacara"
                                 }
                             ],
                             "name": "Travel Time",
@@ -91,7 +97,9 @@
                         },
                         {
                             "entities": [
-                                "sensor.nh_to_poa"
+                                "sensor.nh_to_poa",
+                                "sensor.poa_to_nh",
+                                "sensor.nh_to_chacara"
                             ],
                             "hours_to_show": 24,
                             "type": "history-graph"

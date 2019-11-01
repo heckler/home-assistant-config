@@ -38,7 +38,9 @@ weather:
   - platform: met
     name: weather-2
 
+
 updater:
+  include_used_components: true
 
 
 # Transmission integration

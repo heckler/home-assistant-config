@@ -47,12 +47,12 @@
                         },
                         {
                             "entity": "weather.weather_1",
-                            "name": "Met Weather",
+                            "name": "DarkSky Weather",
                             "type": "weather-forecast"
                         },
                         {
                             "entity": "weather.weather_2",
-                            "name": "DarkSky Weather",
+                            "name": "Met Weather",
                             "type": "weather-forecast"
                         },
                         {
@@ -151,13 +151,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "entities": [
-                                "updater.updater"
-                            ],
-                            "title": "Updater",
-                            "type": "entities"
-                        },
                         {
                             "entity": "sensor.processor_use",
                             "max": 100,

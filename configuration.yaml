@@ -41,6 +41,14 @@ weather:
 updater:
 
 
+# Transmission integration
+transmission:
+  host: !secret transmission_host
+  port: !secret transmission_port
+  username: !secret transmission_user
+  password: !secret transmission_passord
+
+
 # ----------------------------------------------------------------------------------
 # Sensors
 # ----------------------------------------------------------------------------------
@@ -89,7 +97,8 @@ sensor:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 
 

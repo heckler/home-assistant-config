@@ -11,7 +11,6 @@
             "views": [
                 {
                     "badges": [
-                        "binary_sensor.remote_ui",
                         "person.heckler_2",
                         "sensor.balcony_temperature",
                         "sensor.yr_symbol",
@@ -59,7 +58,8 @@
                             "entities": [
                                 "sensor.balcony_temperature"
                             ],
-                            "hours_to_show": 48,
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
                             "type": "history-graph"
                         }
                     ],
@@ -194,14 +194,14 @@
                             "unit": "%"
                         },
                         {
-                            "aspect_ratio": "50%",
+                            "aspect_ratio": "60%",
                             "entity": "camera.esp32cam_01",
                             "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
                             "name": "ESP32Cam_01",
                             "type": "picture-entity"
                         },
                         {
-                            "aspect_ratio": "50%",
+                            "aspect_ratio": "60%",
                             "entity": "camera.esp32cam_02",
                             "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
                             "name": "ESP32Cam_02",
@@ -209,6 +209,29 @@
                         }
                     ],
                     "title": "Misc"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "60%",
+                            "camera_view": "live",
+                            "entity": "camera.esp32cam_01",
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "name": "ESP32Cam_01",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "aspect_ratio": "60%",
+                            "camera_view": "live",
+                            "entity": "camera.esp32cam_02",
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "name": "ESP32Cam_02",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "path": "tr",
+                    "title": "Streams"
                 }
             ]
         }

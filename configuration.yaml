@@ -99,7 +99,7 @@ sensor:
   # info: https://www.home-assistant.io/integrations/emoncms
   - platform: emoncms
     api_key: !secret emoncms_api_key
-    url: http://192.168.6.9/emoncms/
+    url: http://emonpi.local/emoncms/
     id: 1
     scan_interval: 5
 

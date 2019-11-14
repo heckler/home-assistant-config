@@ -111,6 +111,12 @@ tts:
     service_name: google_say
 
 
+# Notification settings
+notify:
+  - platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#home-automation'
+
 
 # ----------------------------------------------------------------------------------
 # iFrame panel: extra links
@@ -119,7 +125,7 @@ tts:
 panel_iframe:
   emon_cms:
     title: 'EmonCMS'
-    url: 'http://192.168.6.9/emoncms/dashboard/view/cah'
+    url: 'http://emonpi.local/emoncms/dashboard/view/cah'
 
 
 

@@ -112,8 +112,10 @@ tts:
 
 
 # Notification settings
+# TODO: read https://community.home-assistant.io/t/how-to-get-actionable-notifications-using-slack/145035
 notify:
   - platform: slack
+    name: slack
     api_key: !secret slack_api_key
     default_channel: '#home-automation'
 

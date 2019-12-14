@@ -42,6 +42,7 @@
                                 "sensor.nh_to_chacara"
                             ],
                             "hours_to_show": 24,
+                            "refresh_interval": 0,
                             "type": "history-graph"
                         },
                         {

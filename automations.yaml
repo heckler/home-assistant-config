@@ -21,3 +21,17 @@
         data_template:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
+  - alias: Periodic slack status update of select sensor values
+    trigger:
+      platform: time_pattern
+      minutes: "/30"     # every 30 minutes
+    action:
+      - service: notify.slack
+        data_template:
+          message: |-
+            House power: {{ states('sensor.emoncms_home_power') }} W
+            Balcony temperature: {{ states('sensor.balcony_temperature') }} oC
+            Balcony humidity: {{ states('sensor.balcony_02_humidity_2') }} %
+            Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} %
+            Home-office temperature: {{ states('sensor.balcony_02_temperature_bmp') }} oC
+

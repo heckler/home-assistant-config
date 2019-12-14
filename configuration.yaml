@@ -111,8 +111,19 @@ tts:
     service_name: google_say
 
 
-# Notification settings
-# TODO: read https://community.home-assistant.io/t/how-to-get-actionable-notifications-using-slack/145035
+# ----------------------------------------------------------------------------------
+# Slack Notification settings
+# TODO: read:
+#    https://community.home-assistant.io/t/how-to-get-actionable-notifications-using-slack/145035
+#    https://api.slack.com/reference/messaging/payload
+#    https://api.slack.com/messaging/sending
+#
+# To test notifications under Developer tools, use a payload like this:
+#    {
+#      "message":"Message text",
+#      "data":{
+#      }
+#    }
 notify:
   - platform: slack
     name: slack

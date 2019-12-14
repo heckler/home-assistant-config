@@ -117,6 +117,9 @@ tts:
 #    https://community.home-assistant.io/t/how-to-get-actionable-notifications-using-slack/145035
 #    https://api.slack.com/reference/messaging/payload
 #    https://api.slack.com/messaging/sending
+#    https://github.com/mikegrb/slackwatch
+#    https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
+#    https://medium.com/alex-attia-blog/build-a-first-simple-slack-bot-with-python-5392ef359835
 #
 # To test notifications under Developer tools, use a payload like this:
 #    {

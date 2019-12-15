@@ -124,6 +124,7 @@ tts:
 # To test notifications under Developer tools, use a payload like this:
 #    {
 #      "message":"Message text",
+#      "target": ["#alerts"],
 #      "data":{
 #      }
 #    }

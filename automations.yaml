@@ -1,7 +1,7 @@
 
   # Set the initial theme for some assistant:
   # See here: https://www.home-assistant.io/integrations/frontend/#themes
-  - alias: 'Set theme at startup'
+  - alias: Set theme at startup
     trigger:
      - platform: homeassistant
        event: start
@@ -35,3 +35,38 @@
             Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} %
             Home-office temperature: {{ states('sensor.balcony_02_temperature_bmp') }} oC
 
+  - alias: Notify if EmonTx_A hasn't updated
+    trigger:
+      platform: template
+      value_template: >
+        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_a_powera', 'LastUpdated') ) > 60 }}
+    action:
+      - service: notify.slack
+        data:
+          message: EmonTx_A hasn't updated in a while
+          target:
+          - "#alerts"
+
+  - alias: Notify if EmonTx_B hasn't updated
+    trigger:
+      platform: template
+      value_template: >
+        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_b_powerb', 'LastUpdated') ) > 60 }}
+    action:
+      - service: notify.slack
+        data:
+          message: EmonTx_B hasn't updated in a while
+          target:
+          - "#alerts"
+
+  - alias: Notify if EmonTx_C hasn't updated
+    trigger:
+      platform: template
+      value_template: >
+        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_c_powerc', 'LastUpdated') ) > 60 }}
+    action:
+      - service: notify.slack
+        data:
+          message: EmonTx_C hasn't updated in a while
+          target:
+          - "#alerts"

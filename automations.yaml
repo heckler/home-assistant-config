@@ -35,6 +35,25 @@
             Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} %
             Home-office temperature: {{ states('sensor.balcony_02_temperature_bmp') }} oC
 
+  # ----------------------------------------------------------------------------------------------------
+  # Notification for the startup event (power cycle?)
+  # ----------------------------------------------------------------------------------------------------
+
+  - alias: Notify on startup
+    trigger:
+     - platform: homeassistant
+       event: start
+    action:
+      - service: notify.slack
+        data:
+          message: ''
+          target:
+          - "#alerts"
+          data:
+            attachments:
+            - color: "#00DF00"
+              title: Home-assistant has started
+              text: Home-assistant has entered the running state
 
   # ----------------------------------------------------------------------------------------------------
   # Notifications for 'EmonTx nodes have stopped sending updates':
@@ -90,58 +109,4 @@
             - color: "#FF0000"
               title: Sensor failed to update
               text: Sensor EmonTx C has not updated in a while
-
-  # ----------------------------------------------------------------------------------------------------
-  # Notifications for 'EmonTx nodes are sending updates again':
-  # ----------------------------------------------------------------------------------------------------
-
-  - alias: Notify if EmonTx_A starts updating again
-    trigger:
-      platform: template
-      value_template: >
-        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_a_powera.last_changed) ) < 10 }}
-    action:
-      - service: notify.slack
-        data:
-          message: ''
-          target:
-          - "#alerts"
-          data:
-            attachments:
-            - color: "#00DF00"
-              title: Sensor failed to update
-              text: EmonTx A has started updating again
-
-  - alias: Notify if EmonTx_B starts updating again
-    trigger:
-      platform: template
-      value_template: >
-        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_b_powerb.last_changed) ) < 10 }}
-    action:
-      - service: notify.slack
-        data:
-          message: ''
-          target:
-          - "#alerts"
-          data:
-            attachments:
-            - color: "#00DF00"
-              title: Sensor failed to update
-              text: EmonTx B has started updating again
-
-  - alias: Notify if EmonTx_C starts updating again
-    trigger:
-      platform: template
-      value_template: >
-        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_c_powerc.last_changed) ) < 10 }}
-    action:
-      - service: notify.slack
-        data:
-          message: ''
-          target:
-          - "#alerts"
-          data:
-            attachments:
-            - color: "#00DF00"
-              title: Sensor failed to update
-              text: EmonTx C has started updating again
+  

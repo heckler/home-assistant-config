@@ -35,11 +35,12 @@
             Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} %
             Home-office temperature: {{ states('sensor.balcony_02_temperature_bmp') }} oC
 
+
   - alias: Notify if EmonTx_A hasn't updated
     trigger:
       platform: template
       value_template: >
-        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_a_powera', 'LastUpdated') ) > 60 }}
+        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_a_powera.last_changed) )  > 60 }}
     action:
       - service: notify.slack
         data:
@@ -51,7 +52,7 @@
     trigger:
       platform: template
       value_template: >
-        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_b_powerb', 'LastUpdated') ) > 60 }}
+        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_b_powerb.last_changed) )  > 60 }}
     action:
       - service: notify.slack
         data:
@@ -63,7 +64,7 @@
     trigger:
       platform: template
       value_template: >
-        {{ ( as_timestamp(now()) - state_attr('sensor.emoncms_node_emontx3_c_powerc', 'LastUpdated') ) > 60 }}
+        {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_c_powerc.last_changed) )  > 60 }}
     action:
       - service: notify.slack
         data:

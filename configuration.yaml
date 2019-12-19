@@ -110,7 +110,7 @@ sensor:
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute
   - platform: time_date
     display_options:
-    - "date_time"
+    - "date_time_utc"
 
 
 # Text to speech

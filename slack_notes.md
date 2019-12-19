@@ -28,8 +28,8 @@ message: ''
 target:
 - "#alerts"
 data:
-attachments:
-- color: "#FF0000"
+  attachments:
+  - color: "#FF0000"
     title: Sensor failed to update
     text: Sensor EmonTx A has not updated in a while
 ```

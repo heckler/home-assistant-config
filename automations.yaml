@@ -34,16 +34,16 @@
           data:
             attachments:
             - color: "#00A7FF"
-              title: "Periodic Home-Hub Status Update:"
+              title: "Home-Hub Status:"
               text: |-
                 House power: {{ states('sensor.emoncms_home_power') }} W
-                Balcony temperature: {{ states('sensor.balcony_temperature') }} oC
+                Balcony temp: {{ states('sensor.balcony_temperature') }} oC
                 Balcony humidity: {{ states('sensor.balcony_02_humidity_2') }} %
                 Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} %
-                Home-office temperature: {{ states('sensor.balcony_02_temperature_bmp') }} oC
-                Power A: {{ states('states.sensor.emoncms_node_emontx3_a_powera') }} W
-                Power B: {{ states('states.sensor.emoncms_node_emontx3_b_powerb') }} W
-                Power C: {{ states('states.sensor.emoncms_node_emontx3_c_powerc') }} W
+                Office temp: {{ states('sensor.balcony_02_temperature_bmp') }} oC
+                Power A: {{ states('sensor.emoncms_node_emontx3_a_powera') }} W
+                Power B: {{ states('sensor.emoncms_node_emontx3_b_powerb') }} W
+                Power C: {{ states('sensor.emoncms_node_emontx3_c_powerc') }} W
 
   # ----------------------------------------------------------------------------------------------------
   # Notification for the startup event (power cycle?)

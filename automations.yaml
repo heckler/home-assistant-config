@@ -1,6 +1,9 @@
 
-  # Set the initial theme for some assistant:
+  # ----------------------------------------------------------------------------------------------------
+  # Set the initial theme for some assistant
   # See here: https://www.home-assistant.io/integrations/frontend/#themes
+  # ----------------------------------------------------------------------------------------------------
+
   - alias: Set theme at startup
     trigger:
      - platform: homeassistant
@@ -9,6 +12,10 @@
       service: frontend.set_theme
       data:
         name: midnight
+
+  # ----------------------------------------------------------------------------------------------------
+  # Notification when there are HA updates available
+  # ----------------------------------------------------------------------------------------------------
 
   - alias: Update Available Notification
     trigger:
@@ -20,6 +27,10 @@
       - service: notify.notify
         data_template:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+
+  # ----------------------------------------------------------------------------------------------------
+  # Periodic status update (power, temperature, etc)
+  # ----------------------------------------------------------------------------------------------------
 
   - alias: Periodic slack status update of select sensor values
     trigger:

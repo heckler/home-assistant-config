@@ -85,6 +85,8 @@
   #   - counter is incremented via an action based on sensor updates
   #   - if counter reaches zero, fire notification 
   #   - if incrementing from zero, fire "back online" notification
+  #   
+  #   https://www.home-assistant.io/integrations/counter/
 
   - alias: Notify if EmonTx_A hasn't updated
     trigger:

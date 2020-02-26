@@ -66,6 +66,13 @@ recorder:
       - sensor.nh_to_chacara
       - sensor.nh_to_poa
       - sensor.poa_to_nh
+      - sensor.speedtest_ping
+      - sensor.speedtest_upload
+      - sensor.speedtest_download
+
+
+# perform an internet speed test every hour:
+speedtestdotnet:
 
 
 # weather platforms

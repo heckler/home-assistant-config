@@ -19,6 +19,9 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.6.0/24
+        - 192.168.0.0/24
+        - fd00::/8
+      allow_bypass_login: true
 
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
@@ -27,7 +30,7 @@ default_config:
 
 # load themes from a subfolder containing configs:
 frontend:
-   themes: !include_dir_merge_named themes/
+   #themes: !include_dir_merge_named themes/
 
 
 # Show the introduction message on startup.

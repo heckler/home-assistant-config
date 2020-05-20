@@ -45,6 +45,28 @@
                             "type": "weather-forecast"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "sensor.brazil_coronavirus_confirmed",
+                                    "name": "Confirmed"
+                                },
+                                {
+                                    "entity": "sensor.brazil_coronavirus_current",
+                                    "name": "Current"
+                                },
+                                {
+                                    "entity": "sensor.brazil_coronavirus_deaths",
+                                    "name": "Deaths"
+                                },
+                                {
+                                    "entity": "sensor.brazil_coronavirus_recovered",
+                                    "name": "Recovered"
+                                }
+                            ],
+                            "title": "COVID-19 - Brazil",
+                            "type": "glance"
+                        },
+                        {
                             "entity": "weather.weather_2",
                             "name": "Met Weather",
                             "type": "weather-forecast"

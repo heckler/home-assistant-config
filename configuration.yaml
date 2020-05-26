@@ -72,6 +72,8 @@ recorder:
       - sensor.speedtest_ping
       - sensor.speedtest_upload
       - sensor.speedtest_download
+      - sensor.brazil_coronavirus_deaths
+      - sensor.brazil_coronavirus_current
 
 
 # perform an internet speed test every hour:

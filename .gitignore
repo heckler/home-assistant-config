@@ -16,3 +16,8 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 
+.HA_VERSION
+home-assistant.log
+home-assistant_v2.db
+glances/*
+

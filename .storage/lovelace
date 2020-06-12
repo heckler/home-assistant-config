@@ -5,7 +5,7 @@
             "views": [
                 {
                     "badges": [
-                        "person.heckler_2",
+                        "person.heckler",
                         "sensor.balcony_temperature",
                         "sensor.yr_symbol",
                         "sensor.processor_use",
@@ -65,6 +65,30 @@
                             ],
                             "title": "COVID-19 - Brazil",
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.brazil_coronavirus_current",
+                                    "name": "Current"
+                                }
+                            ],
+                            "hours_to_show": 240,
+                            "refresh_interval": 0,
+                            "title": "COVID Brazil - Current",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.brazil_coronavirus_deaths",
+                                    "name": "Deaths"
+                                }
+                            ],
+                            "hours_to_show": 240,
+                            "refresh_interval": 0,
+                            "title": "COVID Brazil - Deaths",
+                            "type": "history-graph"
                         },
                         {
                             "entity": "weather.weather_2",

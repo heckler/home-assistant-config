@@ -71,6 +71,43 @@ recorder:
       - sensor.brazil_coronavirus_current
 
 
+# ----------------------------------------------------------------------------------
+# InfluxDB configuration
+# ----------------------------------------------------------------------------------
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+  include:
+    entities:
+      - sensor.balcony_humidity
+      - sensor.balcony_temperature
+      - sensor.emoncms_home_power
+      - sensor.emoncms_home_power_kwh
+      - sensor.emoncms_node_emontx3_a_powera
+      - sensor.emoncms_node_emontx3_a_powera_kwh
+      - sensor.emoncms_node_emontx3_a_vrms
+      - sensor.emoncms_node_emontx3_b_powerb
+      - sensor.emoncms_node_emontx3_b_powerb_kwh
+      - sensor.emoncms_node_emontx3_b_vrms
+      - sensor.emoncms_node_emontx3_c_powerc
+      - sensor.emoncms_node_emontx3_c_powerc_kwh
+      - sensor.emoncms_node_emontx3_c_vrms
+      - sensor.nh_to_chacara
+      - sensor.nh_to_poa
+      - sensor.poa_to_nh
+      - sensor.speedtest_ping
+      - sensor.speedtest_upload
+      - sensor.speedtest_download
+      - sensor.brazil_coronavirus_deaths
+      - sensor.brazil_coronavirus_current
+
+
+
 # perform an internet speed test every hour:
 speedtestdotnet:
 

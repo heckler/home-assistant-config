@@ -105,6 +105,14 @@ influxdb:
       - sensor.speedtest_download
       - sensor.brazil_coronavirus_deaths
       - sensor.brazil_coronavirus_current
+      - sensor.balcony_02_pressure
+  component_config_glob:
+    sensor.*humidity:
+      override_measurement: humidity
+    sensor.*temperature:
+      override_measurement: temperature
+    sensor.*pressure:
+      override_measurement: pressure
 
 
 

@@ -7,6 +7,7 @@
                     "badges": [
                         "person.heckler",
                         "sensor.balcony_temperature",
+                        "sensor.balcony_02_pressure",
                         "sensor.yr_symbol",
                         "sensor.processor_use",
                         "sensor.memory_use_percent",

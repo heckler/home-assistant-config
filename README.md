@@ -8,12 +8,15 @@ Contains the config files from the local PI deployment of home-assistant
 
 ## Links, references and examples
 
-- [https://demo.home-assistant.io/]
+- <https://demo.home-assistant.io/>
+- Google Drive Backup/Restore add-on: https://github.com/sabeechen/hassio-google-drive-backup
 
 
 ## Notes on using Grafana to chart Home Assistant data
 
-1. Stop the Home Assistand process and copy home-assistant_v2.db from /home/homeassistant/.homeassistant
+*Note:* this no longer necessary since using InfluxDB and the Grafana add-on
+
+1. Stop the Home Assistant process and copy home-assistant_v2.db from /home/homeassistant/.homeassistant
 2. Use `DB Browser for SQL Lite` (slickrun keyword: sql-lite-browser) to open the database and export to an SQL file
 3. Run sqlcmd to import the file:
 

@@ -45,8 +45,7 @@ frontend:
 # Recorder configuration - limit which entities have history preserved
 # ----------------------------------------------------------------------------------
 recorder:
-  purge_interval: 10
-  auto_purge: true
+  purge_interval: 0
   commit_interval: 10
   include:
     entities:

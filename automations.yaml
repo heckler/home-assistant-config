@@ -139,3 +139,20 @@
               title: Sensor failed to update
               text: Sensor EmonTx C has not updated in a while
   
+
+
+  # ----------------------------------------------------------------------------------------------------
+  # Purge and repack the SQLite database every day at 2:30 in the morning
+  # ----------------------------------------------------------------------------------------------------
+
+  - alias: Purge Database
+    initial_state: True
+    trigger:
+      platform: time
+      at: '02:30:00'
+    action:
+      service: recorder.purge
+      data:
+        keep_days: 7
+        repack: true
+

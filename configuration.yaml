@@ -181,13 +181,36 @@ sensor:
       - type: last_boot
 
 
-  # EmonCMS, CAH 2019-10-25
-  # info: https://www.home-assistant.io/integrations/emoncms
+  # ----------------------------------------------------------------------------------
+  # EmonCMS sensor patform, CAH 2019-10-25
+  # info:  https://www.home-assistant.io/integrations/emoncms
+  # feeds: http://emonpi/emoncms/feed/list
+  # ----------------------------------------------------------------------------------
+  # faster update for the instant power and current feeds
   - platform: emoncms
     api_key: !secret emoncms_api_key
     url: http://emonpi.local/emoncms/
     id: 1
-    scan_interval: 5
+    scan_interval: 10
+    include_only_feed_id:
+      - 2
+      - 5
+      - 3
+      - 8
+      - 4
+      - 10
+      - 17
+  # slower update rate for the accumulated power feeds
+  - platform: emoncms
+    api_key: !secret emoncms_api_key
+    url: http://emonpi.local/emoncms/
+    id: 1
+    scan_interval: 60
+    include_only_feed_id:
+      - 6
+      - 9
+      - 11
+      - 18
 
 
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute

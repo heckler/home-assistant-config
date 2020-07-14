@@ -172,7 +172,7 @@
                         {
                             "aspect_ratio": "100%",
                             "type": "iframe",
-                            "url": "https://embed.waze.com/iframe?zoom=12&lat=***REMOVED***&lon=***REMOVED***"
+                            "url": "https://embed.waze.com/iframe?zoom=12&lat=-29.7&lon=-51.1"
                         }
                     ],
                     "title": "Map"

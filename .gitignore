@@ -21,3 +21,6 @@ home-assistant.log
 home-assistant_v2.db
 glances/*
 
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
+

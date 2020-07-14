@@ -12,6 +12,7 @@
                         "sensor.processor_use",
                         "sensor.memory_use_percent",
                         "sensor.disk_use_percent",
+                        "sensor.cpu_temperature",
                         "sun.sun"
                     ],
                     "cards": [

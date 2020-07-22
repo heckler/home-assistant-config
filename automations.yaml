@@ -49,8 +49,8 @@
               text: |-
                 House power: {{ states('sensor.emoncms_home_power') }} W
                 Balcony temp: {{ states('sensor.balcony_temperature') }} oC
-                Balcony humidity: {{ states('sensor.balcony_02_humidity_2') }} %
-                Atm pressure: {{ states('sensor.balcony_02_pressure_2') }} hPa
+                Balcony humidity: {{ states('sensor.balcony_02_humidity') }} %
+                Atm pressure: {{ states('sensor.balcony_02_pressure') }} hPa
                 Office temp: {{ states('sensor.balcony_02_temperature_bmp') }} oC
                 Power A: {{ states('sensor.emoncms_node_emontx3_a_powera') }} W
                 Power B: {{ states('sensor.emoncms_node_emontx3_b_powerb') }} W

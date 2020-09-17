@@ -147,10 +147,6 @@ transmission:
 # ----------------------------------------------------------------------------------
 sensor:
 
-  # Weather prediction
-  - platform: yr
-
-
   # waze travel time calculator
   # using a card from: https://github.com/ljmerza/travel-time-card
   - platform: waze_travel_time

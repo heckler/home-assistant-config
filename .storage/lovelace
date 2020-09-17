@@ -5,6 +5,9 @@
             "views": [
                 {
                     "badges": [
+                        {
+                            "entity": "switch.fireplace_light_relay"
+                        },
                         "person.heckler",
                         "sensor.balcony_temperature",
                         "sensor.balcony_02_pressure",

@@ -11,10 +11,9 @@ Contains the config files from the local PI deployment of home-assistant
 - <https://demo.home-assistant.io/>
 - Google Drive Backup/Restore add-on: https://github.com/sabeechen/hassio-google-drive-backup
 
-
 ## Notes on using Grafana to chart Home Assistant data
 
-*Note:* this no longer necessary since using InfluxDB and the Grafana add-on
+*Note:* this is no longer necessary since using InfluxDB and the Grafana add-on
 
 1. Stop the Home Assistant process and copy home-assistant_v2.db from /home/homeassistant/.homeassistant
 2. Use `DB Browser for SQL Lite` (slickrun keyword: sql-lite-browser) to open the database and export to an SQL file
@@ -23,8 +22,6 @@ Contains the config files from the local PI deployment of home-assistant
 `sqlcmd -a 32767 -S HECKLER14\SQLEXPRESS -d home_assistant -i home-assistant_v2.db.sql`
 
 4. Load Grafana in Docker: `docker run -d -p 8080:3000 grafana/grafana`
-
-
 
 ## Alternative
 
@@ -37,8 +34,6 @@ Contains the config files from the local PI deployment of home-assistant
 7. Pick Native SQL as the destination and the target database
 8. Note: after loading the schema, had to edit several of the data type mappings
 
-
 ## MySQL option
 
 1. start MySQL `docker run --name ha -e MYSQL_ROOT_PASSWORD=***REMOVED*** -d mysql`
-

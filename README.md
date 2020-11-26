@@ -9,7 +9,8 @@ Contains the config files from the local PI deployment of home-assistant
 ## Links, references and examples
 
 - <https://demo.home-assistant.io/>
-- Google Drive Backup/Restore add-on: https://github.com/sabeechen/hassio-google-drive-backup
+- Google Drive Backup/Restore add-on: <https://github.com/sabeechen/hassio-google-drive-backup>
+- [Information on removing secrets from the repository](./secrets_cleanup.md)
 
 ## Notes on using Grafana to chart Home Assistant data
 
@@ -25,7 +26,7 @@ Contains the config files from the local PI deployment of home-assistant
 
 ## Alternative
 
-1. SQLite ODBC driver 64b from http://www.ch-werner.de/sqliteodbc/
+1. SQLite ODBC driver 64b from <http://www.ch-werner.de/sqliteodbc/>
 2. Oops, didn't work, had to install the 32b version
 3. run C:\Windows\SysWOW64\odbcad32.exe for the 32b ODBC settings dialog
 4. go to System DSN and create a new entry for the db

@@ -37,4 +37,4 @@ Contains the config files from the local PI deployment of home-assistant
 
 ## MySQL option
 
-1. start MySQL `docker run --name ha -e MYSQL_ROOT_PASSWORD=***REMOVED*** -d mysql`
+1. start MySQL `docker run --name ha -e MYSQL_ROOT_PASSWORD=dummy -d mysql`

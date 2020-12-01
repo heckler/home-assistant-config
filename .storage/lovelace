@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "title": "Home",
@@ -14,9 +16,8 @@
                         "sun.sun",
                         "sensor.memory_use_percent",
                         "sensor.disk_use_percent",
-                        "sensor.cpu_temperature",
-                        "sensor.processor_use",
-                        "swap_free"
+                        "sensor.swap_free",
+                        "sensor.cpu_temperature"
                     ],
                     "cards": [
                         {
@@ -317,7 +318,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

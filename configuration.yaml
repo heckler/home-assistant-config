@@ -173,7 +173,7 @@ sensor:
         arg: /
       - type: memory_use_percent
       - type: load_1m
-      - type: processor_use
+      - type: swap_free
       - type: last_boot
 
 

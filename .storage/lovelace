@@ -11,11 +11,12 @@
                         "person.heckler",
                         "sensor.balcony_temperature",
                         "sensor.balcony_02_pressure",
-                        "sensor.processor_use",
+                        "sun.sun",
                         "sensor.memory_use_percent",
                         "sensor.disk_use_percent",
                         "sensor.cpu_temperature",
-                        "sun.sun"
+                        "sensor.processor_use",
+                        "swap_free"
                     ],
                     "cards": [
                         {

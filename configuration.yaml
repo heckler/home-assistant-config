@@ -45,8 +45,9 @@ frontend:
 # Recorder configuration - limit which entities have history preserved
 # ----------------------------------------------------------------------------------
 recorder:
-  purge_interval: 0
-  commit_interval: 10
+  auto_purge: true
+  purge_keep_days: 14
+  commit_interval: 30
   include:
     entities:
       - sensor.balcony_humidity
@@ -126,8 +127,10 @@ weather:
   - platform: darksky
     name: weather-1
     api_key: !secret darksky_api_key
+    id: 1
   - platform: met
     name: weather-2
+    id: 2
 
 
 updater:

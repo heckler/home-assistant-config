@@ -127,11 +127,9 @@ weather:
   - platform: darksky
     name: weather-1
     api_key: !secret darksky_api_key
-    id: 1
   - platform: met
     name: weather-2
-    id: 2
-
+  
 
 updater:
   include_used_components: true

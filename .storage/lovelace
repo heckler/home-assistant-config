@@ -51,52 +51,6 @@
                             "type": "weather-forecast"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.brazil_coronavirus_confirmed",
-                                    "name": "Confirmed"
-                                },
-                                {
-                                    "entity": "sensor.brazil_coronavirus_current",
-                                    "name": "Current"
-                                },
-                                {
-                                    "entity": "sensor.brazil_coronavirus_deaths",
-                                    "name": "Deaths"
-                                },
-                                {
-                                    "entity": "sensor.brazil_coronavirus_recovered",
-                                    "name": "Recovered"
-                                }
-                            ],
-                            "title": "COVID-19 - Brazil",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.brazil_coronavirus_current",
-                                    "name": "Current"
-                                }
-                            ],
-                            "hours_to_show": 240,
-                            "refresh_interval": 0,
-                            "title": "COVID Brazil - Current",
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.brazil_coronavirus_deaths",
-                                    "name": "Deaths"
-                                }
-                            ],
-                            "hours_to_show": 240,
-                            "refresh_interval": 0,
-                            "title": "COVID Brazil - Deaths",
-                            "type": "history-graph"
-                        },
-                        {
                             "entity": "weather.weather_2",
                             "name": "Met Weather",
                             "type": "weather-forecast"

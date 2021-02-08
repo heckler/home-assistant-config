@@ -46,11 +46,6 @@
                             "type": "history-graph"
                         },
                         {
-                            "entity": "weather.weather_1",
-                            "name": "DarkSky Weather",
-                            "type": "weather-forecast"
-                        },
-                        {
                             "entity": "weather.weather_2",
                             "name": "Met Weather",
                             "type": "weather-forecast"

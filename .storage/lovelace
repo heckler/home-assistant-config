@@ -81,6 +81,7 @@
                 },
                 {
                     "badges": [
+                        "sensor.emoncms_home_power",
                         "sensor.emoncms_node_emontx3_a_powera",
                         "sensor.emoncms_node_emontx3_b_powerb",
                         "sensor.emoncms_node_emontx3_c_powerc"
@@ -88,9 +89,20 @@
                     "cards": [
                         {
                             "entities": [
+                                "sensor.emoncms_home_power",
                                 "sensor.emoncms_node_emontx3_a_powera",
                                 "sensor.emoncms_node_emontx3_b_powerb",
                                 "sensor.emoncms_node_emontx3_c_powerc"
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.emoncms_home_power_kwh",
+                                "sensor.emoncms_node_emontx3_a_powera_kwh",
+                                "sensor.emoncms_node_emontx3_b_powerb_kwh",
+                                "sensor.emoncms_node_emontx3_c_powerc_kwh"
                             ],
                             "hours_to_show": 48,
                             "type": "history-graph"

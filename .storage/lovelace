@@ -169,20 +169,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "sensor.processor_use",
-                            "max": 100,
-                            "min": 0,
-                            "name": "CPU",
-                            "severity": {
-                                "green": 0,
-                                "red": 80,
-                                "yellow": 60
-                            },
-                            "theme": "default",
-                            "type": "gauge",
-                            "unit": "%"
-                        },
-                        {
                             "entity": "sensor.memory_use_percent",
                             "max": 100,
                             "min": 0,
@@ -211,18 +197,8 @@
                             "unit": "%"
                         },
                         {
-                            "aspect_ratio": "60%",
-                            "entity": "camera.esp32cam_01",
-                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
-                            "name": "ESP32Cam_01",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "aspect_ratio": "60%",
-                            "entity": "camera.esp32cam_02",
-                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
-                            "name": "ESP32Cam_02",
-                            "type": "picture-entity"
+                            "type": "light",
+                            "entity": "light.search_light"
                         }
                     ],
                     "title": "Misc"

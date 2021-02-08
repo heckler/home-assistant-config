@@ -194,7 +194,7 @@ sensor:
   # faster update for the instant power and current feeds
   - platform: emoncms
     api_key: !secret emoncms_api_key
-    url: http://emonpi.local/emoncms/
+    url: !secret emoncms_url
     id: 1
     scan_interval: 10
     include_only_feed_id:
@@ -208,7 +208,7 @@ sensor:
   # slower update rate for the accumulated power feeds
   - platform: emoncms
     api_key: !secret emoncms_api_key
-    url: 'http://emonpi.local/emoncms'
+    url: !secret emoncms_url
     id: 1
     scan_interval: 60
     include_only_feed_id:

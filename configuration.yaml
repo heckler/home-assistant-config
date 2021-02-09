@@ -229,8 +229,8 @@ sensor:
     sensors:
       problem_check:
         value_template: >-
-          {{ is_state('sensor.balcony_02_temperature_bmp', 'unavailable') or 
-             is_state('sensor.balcony_temperature', 'unavailable') or 
+          {{ is_state('sensor.balcony_temperature', 'unavailable') or 
+             is_state('sensor.balcony_02_temperature_bmp', 'unavailable') or 
              is_state('binary_sensor.fireplace_light_button', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_a_powera', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_b_powerb', 'unavailable') or 
@@ -239,7 +239,7 @@ sensor:
              is_state('sensor.speedtest_download', 'unavailable')
           }}
       problem_status:
-        value_template:  >-
+        value_template: >-
           {% if states.sensor.problem_check %}
              {% if states.sensor.problem_check.state == "True" %}
                 Problem
@@ -249,6 +249,15 @@ sensor:
           {% else %}
             N/A
           {% endif %}
+        attribute_templates:
+          Balcony_01: '{% if is_state("sensor.balcony_temperature", "unavailable") %} Problem  {% else %} OK {% endif %}' 
+          Balcony_02: '{% if is_state("sensor.balcony_02_temperature_bmp", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Fireplace_light: '{% if is_state("binary_sensor.fireplace_light_button", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Emoncms_power_A: '{% if is_state("sensor.emoncms_node_emontx3_a_powera", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Emoncms_power_B: '{% if is_state("sensor.emoncms_node_emontx3_b_powerb", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Emoncms_power_C: '{% if is_state("sensor.emoncms_node_emontx3_c_powerc", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Waze: '{% if is_state("sensor.nh_to_poa", "unavailable") %} Problem  {% else %} OK {% endif %}'
+          Speedtest: '{% if is_state("sensor.speedtest_download", "unavailable") %} Problem  {% else %} OK {% endif %}'
         friendly_name: Status
 
 

@@ -10,6 +10,7 @@
                         {
                             "entity": "switch.fireplace_light_relay"
                         },
+                        "sensor.problem_status",
                         "person.heckler",
                         "sensor.balcony_temperature",
                         "sensor.balcony_02_pressure",

@@ -224,6 +224,34 @@ sensor:
     - "date_time_utc"
 
 
+# availability-base indication of problems with the sensors
+  - platform: template
+    sensors:
+      problem_check:
+        value_template: >-
+          {{ is_state('sensor.balcony_02_temperature_bmp', 'unavailable') or 
+             is_state('sensor.balcony_temperature', 'unavailable') or 
+             is_state('binary_sensor.fireplace_light_button', 'unavailable') or 
+             is_state('sensor.emoncms_node_emontx3_a_powera', 'unavailable') or 
+             is_state('sensor.emoncms_node_emontx3_b_powerb', 'unavailable') or 
+             is_state('sensor.emoncms_node_emontx3_c_powerc', 'unavailable') or 
+             is_state('sensor.nh_to_poa', 'unavailable') or 
+             is_state('sensor.speedtest_download', 'unavailable')
+          }}
+      problem_status:
+        value_template:  >-
+          {% if states.sensor.problem_check %}
+             {% if states.sensor.problem_check.state == "True" %}
+                Problem
+             {% else %}
+                Ok
+             {% endif %}
+          {% else %}
+            N/A
+          {% endif %}
+        friendly_name: Status
+
+
 # Text to speech
 tts:
   - platform: google_translate

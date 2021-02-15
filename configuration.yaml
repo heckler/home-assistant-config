@@ -266,7 +266,7 @@ sensor:
           Emoncms_power_A: '{% if is_state("sensor.emoncms_node_emontx3_a_powera", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_B: '{% if is_state("sensor.emoncms_node_emontx3_b_powerb", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_C: '{% if is_state("sensor.emoncms_node_emontx3_c_powerc", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Waze: '{% if is_state("sensor.nh_to_poa", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_temperature.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Waze: '{% if is_state("sensor.nh_to_poa", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.nh_to_poa.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Speedtest: '{% if is_state("sensor.speedtest_download", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.speedtest_download.last_updated).total_seconds() > 4000) %} Stale {% else %} OK {% endif %} {% endif %}'
         friendly_name: Status
 

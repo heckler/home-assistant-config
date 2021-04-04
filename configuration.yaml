@@ -71,6 +71,8 @@ recorder:
       - sensor.speedtest_download
       - sensor.brazil_coronavirus_deaths
       - sensor.brazil_coronavirus_current
+      - sensor.freezer_internal_temperature
+      - sensor.freezer_external_temperature
 
 
 # ----------------------------------------------------------------------------------
@@ -108,6 +110,8 @@ influxdb:
       - sensor.brazil_coronavirus_deaths
       - sensor.brazil_coronavirus_current
       - sensor.balcony_02_pressure
+      - sensor.freezer_internal_temperature
+      - sensor.freezer_external_temperature
   component_config_glob:
     sensor.*humidity:
       override_measurement: humidity

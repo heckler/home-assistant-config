@@ -98,6 +98,12 @@
                             "refresh_interval": 0,
                             "title": "Speedtest",
                             "type": "history-graph"
+                        },
+                        {
+                            "type": "sensor",
+                            "graph": "line",
+                            "entity": "sensor.freezer_internal_temperature",
+                            "detail": 1
                         }
                     ],
                     "panel": false,

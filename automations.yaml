@@ -27,6 +27,9 @@
       - service: notify.notify
         data_template:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
+      - service: notify.telegram
+        data_template:
+          message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
   # ----------------------------------------------------------------------------------------------------
   # Periodic status update (power, temperature, etc)
@@ -65,16 +68,9 @@
      - platform: homeassistant
        event: start
     action:
-      - service: notify.slack
+      - service: notify.telegram
         data:
-          message: ''
-          target:
-          - "#alerts"
-          data:
-            attachments:
-            - color: "#00DF00"
-              title: Home-assistant has started
-              text: Home-assistant has entered the running state
+          message: 'Home assistant has started'
 
   # ----------------------------------------------------------------------------------------------------
   # Notifications for 'EmonTx nodes have stopped sending updates':

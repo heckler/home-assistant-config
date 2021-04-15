@@ -283,13 +283,29 @@ tts:
 
 
 # ----------------------------------------------------------------------------------
-# Slack Notification settings
+# Telegram bot configuration
+# ----------------------------------------------------------------------------------
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id_1
+
+
+
+# ----------------------------------------------------------------------------------
+# Notification settings
 # ----------------------------------------------------------------------------------
 notify:
+
   - platform: slack
     name: slack
     api_key: !secret slack_api_key
     default_channel: '#home-automation'
+
+  - platform: telegram
+    name: telegram
+    chat_id: !secret telegram_chat_id_1
 
 
 # ----------------------------------------------------------------------------------
@@ -306,3 +322,4 @@ panel_iframe:
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+

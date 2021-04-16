@@ -323,3 +323,26 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
+
+# ----------------------------------------------------------------------------------
+# (experiment) Telegram alarm for high freezer temperature
+# ----------------------------------------------------------------------------------
+
+binary_sensor:
+  - platform: template
+    sensors:
+      freezer_is_warm:
+        value_template: "{{ float(states.sensor.freezer_internal_temperature.state) > -18.5 }}"
+        friendly_name: "Freezer temperature too high"
+
+alert:
+  freezer_is_warm:
+    name: "Freezer temperature too high"
+    entity_id: binary_sensor.freezer_is_warm
+    repeat: 30
+    notifiers:
+      - telegram
+    data:
+      message: Freezer temperature too high
+
+

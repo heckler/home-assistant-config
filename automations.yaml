@@ -152,3 +152,19 @@
         keep_days: 7
         repack: true
 
+
+  # ----------------------------------------------------------------------------------------------------
+  # Telegram bot command to reply with status of the freezer
+  # ----------------------------------------------------------------------------------------------------
+  - alias: 'Telegram bot command that informs the status of the freezer'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/freezer"
+    action:
+      - service: notify.telegram
+        data_template:
+          message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }}"
+
+

@@ -332,7 +332,7 @@ binary_sensor:
   - platform: template
     sensors:
       freezer_is_warm:
-        value_template: "{{ float(states.sensor.freezer_internal_temperature.state) > -18.5 }}"
+        value_template: "{{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}"
         friendly_name: "Freezer temperature too high"
 
 alert:

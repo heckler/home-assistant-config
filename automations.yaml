@@ -168,3 +168,24 @@
           message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }} ({{ relative_time(states.sensor.freezer_internal_temperature.last_changed) }} ago)"
 
 
+
+  # ----------------------------------------------------------------------------------------------------
+  # Telegram bot command to reply with list of tempetarure values
+  # ----------------------------------------------------------------------------------------------------
+  - alias: 'Telegram bot command to reply with list of tempetarure values'
+    trigger:
+      platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/temp"
+    action:
+      - service: notify.telegram
+        data_template:
+          message: |-
+            Current temperatures:
+            ---------------------
+            Freezer: {{ states.sensor.freezer_internal_temperature.state_with_unit }}
+            Laundry room: {{ states.sensor.freezer_external_temperature.state_with_unit }}
+            Living room: {{ states.sensor.balcony_02_temperature_bmp.state_with_unit }}
+            Balcony: {{ states.sensor.balcony_temperature.state_with_unit }}
+

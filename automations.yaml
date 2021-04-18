@@ -165,6 +165,6 @@
     action:
       - service: notify.telegram
         data_template:
-          message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }}"
+          message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }} ({{ relative_time(states.sensor.freezer_internal_temperature.last_changed) }} ago)"
 
 

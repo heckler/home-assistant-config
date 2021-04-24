@@ -1,0 +1,53 @@
+blueprint:
+  name: Pause movie when light on
+  description: Pauses movie playback when a certain light is turned on.
+  domain: automation
+  input:
+    media_player:
+      name: Media player
+      description: This media device will be paused.
+      selector:
+        entity:
+          domain: media_player
+    light:
+      name: Light
+      description: Turning this light on will pause playback.
+      selector:
+        entity:
+          domain: light
+    timeout:
+      name: Resume playback timeout
+      description: If the light is turned back off within this time, playback will
+        resume.
+      default: 5
+      selector:
+        number:
+          min: 0.0
+          max: 999.0
+          unit_of_measurement: minutes
+          mode: box
+          step: 1.0
+  source_url: https://community.home-assistant.io/t/pause-movie-when-light-is-switched-on/289882
+mode: single
+trigger:
+- platform: state
+  entity_id: !input 'light'
+  from: 'off'
+  to: 'on'
+condition:
+- condition: state
+  entity_id: !input 'media_player'
+  state: playing
+action:
+- service: media_player.media_pause
+  entity_id: !input 'media_player'
+- wait_for_trigger:
+  - platform: state
+    entity_id: !input 'light'
+    from: 'on'
+    to: 'off'
+  continue_on_timeout: false
+  timeout:
+    minutes: !input 'timeout'
+- service: media_player.media_play
+  entity_id: !input 'media_player'

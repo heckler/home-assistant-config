@@ -318,9 +318,15 @@ panel_iframe:
     url: 'http://emonpi.local/emoncms/dashboard/view/cah'
 
 
+# load manually created automations from a subfolder:
+# GUI- and blueprint- created automations are stored in confg/automations.yaml
+# and a symlink under the automations folder allows it to be included:
+# cd /root/config/automations
+# ln -s ../automations.yaml gui_automations.yaml
+automation: !include_dir_merge_list automations/
+
 
 group: !include groups.yaml
-automation: !include_dir_merge_list automations/
 script: !include scripts.yaml
 
 

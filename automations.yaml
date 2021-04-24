@@ -1,0 +1,9 @@
+- id: '1619299637337'
+  alias: Pause movie when fireplace light on
+  description: Pause movie when fireplace light on
+  use_blueprint:
+    path: jfedor/pause-movie-when-light-is-switched-on.yaml
+    input:
+      media_player: media_player.living_room
+      light: switch.fireplace_light_relay
+      timeout: 6

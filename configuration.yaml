@@ -73,6 +73,8 @@ recorder:
       - sensor.brazil_coronavirus_current
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
+      - sensor.fridge_main_temperature
+      - sensor.fridge_freezer_temperature
 
 
 # ----------------------------------------------------------------------------------
@@ -112,6 +114,8 @@ influxdb:
       - sensor.balcony_02_pressure
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
+      - sensor.fridge_main_temperature
+      - sensor.fridge_freezer_temperature
   component_config_glob:
     sensor.*humidity:
       override_measurement: humidity

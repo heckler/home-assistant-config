@@ -22,30 +22,72 @@
                     ],
                     "cards": [
                         {
-                            "type": "sensor",
-                            "graph": "line",
-                            "entity": "sensor.freezer_internal_temperature",
-                            "detail": 2
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "sensor.freezer_internal_temperature",
+                                    "name": "Freezer"
+                                },
+                                {
+                                    "entity": "sensor.fridge_main_temperature",
+                                    "name": "Fridge Down"
+                                },
+                                {
+                                    "entity": "sensor.fridge_freezer_temperature",
+                                    "name": "Fridge Up"
+                                },
+                                {
+                                    "entity": "switch.fireplace_light_relay",
+                                    "name": "Fireplace"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "sensor.balcony_temperature",
+                                    "name": "Balcony"
+                                },
+                                {
+                                    "entity": "sensor.living_room_02_temperature",
+                                    "name": "Living Room"
+                                },
+                                {
+                                    "entity": "sensor.balcony_02_pressure",
+                                    "name": "Living Room"
+                                },
+                                {
+                                    "entity": "sensor.balcony_02_humidity",
+                                    "name": "Living Room"
+                                }
+                            ]
                         },
                         {
                             "entities": [
-                                "sensor.emoncms_node_emontx3_a_powera"
+                                {
+                                    "entity": "sensor.emoncms_home_power",
+                                    "name": "Home power"
+                                }
                             ],
-                            "hours_to_show": 8,
+                            "hours_to_show": 12,
                             "type": "history-graph",
                             "refresh_interval": 0
                         },
                         {
                             "entities": [
-                                "sensor.emoncms_node_emontx3_b_powerb"
-                            ],
-                            "hours_to_show": 8,
-                            "type": "history-graph",
-                            "refresh_interval": 0
-                        },
-                        {
-                            "entities": [
-                                "sensor.emoncms_node_emontx3_c_powerc"
+                                {
+                                    "entity": "sensor.freezer_internal_temperature",
+                                    "name": "Freezer"
+                                },
+                                {
+                                    "entity": "sensor.fridge_main_temperature",
+                                    "name": "Fridge Down"
+                                },
+                                {
+                                    "entity": "sensor.fridge_freezer_temperature",
+                                    "name": "Fridge Up"
+                                }
                             ],
                             "hours_to_show": 8,
                             "type": "history-graph",
@@ -78,7 +120,10 @@
                         },
                         {
                             "entities": [
-                                "sensor.balcony_temperature"
+                                {
+                                    "entity": "sensor.balcony_temperature",
+                                    "name": "Balcony temperature"
+                                }
                             ],
                             "hours_to_show": 48,
                             "refresh_interval": 0,

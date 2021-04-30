@@ -16,7 +16,7 @@
       message: Control Panel
       data:
         inline_keyboard:
-          - "Temp:/temp, Freezer:/freezer, Ping:/ping"
+          - "Temp:/temp, Freezer:/freezer, Ping:/ping, Light:/light"
 
 
 ####################
@@ -80,4 +80,19 @@
           Living room: {{ states.sensor.balcony_02_temperature_bmp.state_with_unit }}
           Balcony: {{ states.sensor.balcony_temperature.state_with_unit }}
 
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the fireplace light
+# ----------------------------------------------------------------------------------------------------
+- alias: 'Telegram bot command to toggle the fireplace light'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: "/light"
+  action:
+    - service: switch.toggle
+      target:
+        entity_id: switch.fireplace_light_relay
 

@@ -38,7 +38,10 @@
                                 },
                                 {
                                     "entity": "switch.fireplace_light_relay",
-                                    "name": "Fireplace"
+                                    "name": "Fireplace",
+                                    "hold_action": {
+                                        "action": "toggle"
+                                    }
                                 }
                             ]
                         },

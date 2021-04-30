@@ -350,6 +350,7 @@ alert:
     name: "Freezer temperature too high"
     entity_id: binary_sensor.freezer_is_warm
     repeat: 30
+    skip_first: true
     notifiers:
       - telegram
     data:

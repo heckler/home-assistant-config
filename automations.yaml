@@ -7,3 +7,29 @@
       media_player: media_player.living_room
       light: switch.fireplace_light_relay
       timeout: 6
+- id: '1633902903431'
+  alias: Irrigation Pump - turn ON
+  description: "Activates the \x7Firrigation pump"
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: aca0a8c88a31a63fc14b5277734a029f
+    entity_id: switch.irrigation_pump_relay
+    domain: switch
+  mode: single
+- id: '1633902953506'
+  alias: Irrigation Pump - turn OFF
+  description: "Deactivates the \x7Firrigation pump"
+  trigger:
+  - platform: time
+    at: '20:01:00'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: aca0a8c88a31a63fc14b5277734a029f
+    entity_id: switch.irrigation_pump_relay
+    domain: switch
+  mode: single

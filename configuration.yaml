@@ -75,6 +75,7 @@ recorder:
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
       - sensor.fridge_freezer_temperature
+      - sensor.memory_use_percent
 
 
 # ----------------------------------------------------------------------------------

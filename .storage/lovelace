@@ -152,6 +152,16 @@
                             "refresh_interval": 0,
                             "title": "Speedtest",
                             "type": "history-graph"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                }
+                            ],
+                            "hours_to_show": 120,
+                            "refresh_interval": 0
                         }
                     ],
                     "panel": false,

@@ -127,12 +127,6 @@ influxdb:
 
 
 
-# perform an internet speed test every hour:
-speedtestdotnet:
-  scan_interval:
-    hours: 1
-
-
 # weather platforms
 weather:
   - platform: darksky
@@ -302,11 +296,6 @@ telegram_bot:
 # Notification settings
 # ----------------------------------------------------------------------------------
 notify:
-
-  - platform: slack
-    name: slack
-    api_key: !secret slack_api_key
-    default_channel: '#home-automation'
 
   - platform: telegram
     name: telegram

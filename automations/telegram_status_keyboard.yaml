@@ -95,4 +95,9 @@
     - service: switch.toggle
       target:
         entity_id: switch.fireplace_light_relay
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "Fireplace light is: {{ states.switch.fireplace_light_relay.state }}."
 

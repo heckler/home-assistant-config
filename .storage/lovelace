@@ -92,7 +92,7 @@
                                     "name": "Fridge Up"
                                 }
                             ],
-                            "hours_to_show": 8,
+                            "hours_to_show": 48,
                             "type": "history-graph",
                             "refresh_interval": 0
                         },

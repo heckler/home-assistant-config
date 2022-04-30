@@ -24,7 +24,6 @@
 ####################
 - id: telegram-ik-ping-pong
   alias: 'telegram ping pong'
-  hide_entity: true
   trigger:
     - platform: event
       event_type: telegram_callback

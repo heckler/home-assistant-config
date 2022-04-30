@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -99,58 +100,12 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.nh_to_poa"
-                                },
-                                {
-                                    "entity": "sensor.poa_to_nh"
-                                },
-                                {
-                                    "entity": "sensor.nh_to_chacara"
-                                }
-                            ],
-                            "name": "Travel Time",
-                            "type": "custom:travel-time-card"
-                        },
-                        {
-                            "entities": [
-                                "sensor.nh_to_poa",
-                                "sensor.poa_to_nh",
-                                "sensor.nh_to_chacara"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "sensor.balcony_temperature",
                                     "name": "Balcony temperature"
                                 }
                             ],
                             "hours_to_show": 48,
                             "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entity": "weather.weather_2",
-                            "name": "Met Weather",
-                            "type": "weather-forecast"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.speedtest_download",
-                                    "name": "download"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_upload",
-                                    "name": "upload"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "Speedtest",
                             "type": "history-graph"
                         },
                         {
@@ -299,10 +254,6 @@
                         {
                             "type": "light",
                             "entity": "light.wakeup_light_02g"
-                        },
-                        {
-                            "type": "light",
-                            "entity": "light.search_light"
                         }
                     ],
                     "title": "Misc"

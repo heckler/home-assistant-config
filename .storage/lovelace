@@ -294,6 +294,14 @@
                         },
                         {
                             "type": "light",
+                            "entity": "light.wakeup_light_01r"
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.wakeup_light_02g"
+                        },
+                        {
+                            "type": "light",
                             "entity": "light.search_light"
                         }
                     ],

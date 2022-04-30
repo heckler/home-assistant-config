@@ -13,17 +13,6 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
-  # configuration for casting: 
-  # (see https://community.home-assistant.io/t/using-catt/130332/15 )
-  auth_providers:
-    - type: trusted_networks
-      trusted_networks:
-        - 192.168.6.0/24
-        - 192.168.0.0/24
-        - fd00::/8
-      allow_bypass_login: true
-
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -132,8 +121,6 @@ weather:
   - platform: darksky
     name: weather-1
     api_key: !secret darksky_api_key
-  - platform: met
-    name: weather-2
   
 
 updater:

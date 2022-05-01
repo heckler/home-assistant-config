@@ -30,16 +30,16 @@
                                     "name": "Freezer"
                                 },
                                 {
-                                    "entity": "sensor.fridge_main_temperature",
-                                    "name": "Fridge Down"
+                                    "entity": "sensor.freezer_external_temperature",
+                                    "name": "Laundry room"
                                 },
                                 {
-                                    "entity": "sensor.fridge_freezer_temperature",
-                                    "name": "Fridge Up"
+                                    "entity": "sensor.living_room_02_temperature",
+                                    "name": "Living room"
                                 },
                                 {
-                                    "entity": "switch.fireplace_light_relay",
-                                    "name": "Fireplace",
+                                    "entity": "sensor.balcony_temperature",
+                                    "name": "Balcony",
                                     "hold_action": {
                                         "action": "toggle"
                                     }
@@ -47,23 +47,44 @@
                             ]
                         },
                         {
+                            "show_name": true,
+                            "show_icon": true,
+                            "show_state": true,
                             "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "sensor.balcony_temperature",
-                                    "name": "Balcony"
+                                    "entity": "light.wakeup_light_01r",
+                                    "name": "01-R",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "double_tap_action": {
+                                        "action": "more-info"
+                                    }
                                 },
                                 {
-                                    "entity": "sensor.living_room_02_temperature",
-                                    "name": "Living Room"
+                                    "entity": "light.wakeup_light_02g",
+                                    "name": "01-G",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "double_tap_action": {
+                                        "action": "more-info"
+                                    }
                                 },
                                 {
-                                    "entity": "sensor.balcony_02_pressure",
-                                    "name": "Living Room"
+                                    "entity": "switch.fireplace_light_relay",
+                                    "name": "Fireplace"
                                 },
                                 {
-                                    "entity": "sensor.balcony_02_humidity",
-                                    "name": "Living Room"
+                                    "entity": "switch.irrigation_pump_relay",
+                                    "name": "Irrigation",
+                                    "tap_action": {
+                                        "action": "more-info"
+                                    },
+                                    "double_tap_action": {
+                                        "action": "more-info"
+                                    }
                                 }
                             ]
                         },

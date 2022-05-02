@@ -214,6 +214,8 @@ sensor:
   - platform: time_date
     display_options:
     - "date_time_utc"
+    - "date_time_iso"
+    - "date"
 
 
 # availability-base indication of problems with the sensors

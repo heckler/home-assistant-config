@@ -64,7 +64,7 @@
                                 },
                                 {
                                     "entity": "light.wakeup_light_02g",
-                                    "name": "01-G",
+                                    "name": "02-G",
                                     "tap_action": {
                                         "action": "toggle"
                                     },

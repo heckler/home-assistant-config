@@ -74,7 +74,13 @@
                                 },
                                 {
                                     "entity": "switch.fireplace_light_relay",
-                                    "name": "Fireplace"
+                                    "name": "Fireplace",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "double_tap_action": {
+                                        "action": "more-info"
+                                    }
                                 },
                                 {
                                     "entity": "switch.irrigation_pump_relay",

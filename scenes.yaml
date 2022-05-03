@@ -1,5 +1,5 @@
 - id: '1651535514012'
-  name: Ligths to pre-alarm mode
+  name: 01-R Light to pre-alarm mode
   entities:
     light.wakeup_light_01r:
       supported_color_modes:
@@ -25,6 +25,10 @@
       - 0.654
       - 0.32
       state: 'on'
+  icon: mdi:lightbulb-auto
+- id: '1651600778354'
+  name: 02-G Light to pre-alarm mode
+  entities:
     light.wakeup_light_02g:
       supported_color_modes:
       - rgbww
@@ -33,20 +37,21 @@
       color_mode: rgbww
       brightness: 3
       hs_color:
-      - 9.722
-      - 84.706
+      - 9.533
+      - 83.922
       rgb_color:
       - 255
-      - 74
-      - 39
+      - 75
+      - 41
       rgbww_color:
       - 255
       - 7
       - 0
-      - 0
+      - 5
       - 179
       xy_color:
-      - 0.656
+      - 0.654
       - 0.32
       state: 'on'
   icon: mdi:lightbulb-auto
+

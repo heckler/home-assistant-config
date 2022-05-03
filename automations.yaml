@@ -37,3 +37,34 @@
     entity_id: switch.irrigation_pump_relay
     domain: switch
   mode: single
+- id: '1651531753854'
+  alias: '[01-R] Wake-up light alarm'
+  description: ''
+  use_blueprint:
+    path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
+    input:
+      manual_time: 06:30:00
+      light_entity: light.wakeup_light_01r
+      sunrise_duration: 10
+      end_brightness: 255
+      pre_sunrise_actions:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.01r_light_pre_alarm_mode
+        metadata: {}
+- id: '1651602009310'
+  alias: '[02-G] Wake-up light alarm'
+  description: ''
+  use_blueprint:
+    path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
+    input:
+      manual_time: 06:30:00
+      light_entity: light.wakeup_light_02g
+      sunrise_duration: 10
+      end_brightness: 255
+      pre_sunrise_actions:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.02g_light_pre_alarm_mode
+        metadata: {}
+

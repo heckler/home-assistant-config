@@ -13,8 +13,6 @@
   trigger:
   - platform: time
     at: '18:00:00'
-  - platform: time
-    at: 04:00:00
   condition: []
   action:
   - type: turn_on
@@ -43,7 +41,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:30:00
+      manual_time: 06:20:00
       light_entity: light.wakeup_light_01r
       sunrise_duration: 10
       end_brightness: 255
@@ -67,4 +65,3 @@
         target:
           entity_id: scene.02g_light_pre_alarm_mode
         metadata: {}
-

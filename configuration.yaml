@@ -128,9 +128,6 @@ weather:
     api_key: !secret darksky_api_key
   
 
-updater:
-  include_used_components: true
-
 
 # Transmission integration
 #transmission:

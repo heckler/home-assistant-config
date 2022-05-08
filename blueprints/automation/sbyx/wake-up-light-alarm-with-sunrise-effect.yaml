@@ -30,7 +30,7 @@ blueprint:
         time: {}
     check_entity:
       name: Additional entity to check before sunrise is triggered
-      description: If set, checks if entity is 'on' or 'home' before triggering. Use
+      description: If set, checks if entity is 'on', 'home' or 'true' before triggering. Use
         e.g. a (workday) sensor, device_tracker or person entity.
       default: none
       selector:
@@ -116,7 +116,7 @@ action:
 - wait_template: '{{sensor == ''none'' or as_timestamp(states(sensor), None) != None}}'
 - wait_template: '{{0 < as_timestamp(states(sensor) if sensor != ''none'' else states(''sensor.date'')
     ~ '' '' ~ manual_time) - as_timestamp(states(''sensor.date_time_iso'')) <= float(seconds)
-    and states(check_entity) in [''unknown'', ''on'', ''home'']}}'
+    and states(check_entity) in [''unknown'', ''on'', ''home'', ''true'', ''True'']}}'
 - choose: []
   default: !input 'pre_sunrise_actions'
 - condition: template
@@ -124,7 +124,7 @@ action:
 - condition: template
   value_template: '{{0 < as_timestamp(states(sensor) if sensor != ''none'' else states(''sensor.date'')
     ~ '' '' ~ manual_time) - as_timestamp(now()) <= float(seconds) and states(check_entity)
-    in [''unknown'', ''on'', ''home'']}}'
+    in [''unknown'', ''on'', ''home'', ''true'', ''True'']}}'
 - choose:
   - conditions:
     - '{{state_attr(light_entity, ''min_mireds'') != None}}'

@@ -1,0 +1,95 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "lovelace.lovelace_rafael",
+    "data": {
+        "config": {
+            "title": "Rafael",
+            "views": [
+                {
+                    "theme": "Backend-selected",
+                    "path": "default_view",
+                    "title": "Rafael",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_enabled",
+                                    "name": "Wake-up enabled"
+                                },
+                                {
+                                    "type": "divider",
+                                    "style": {
+                                        "height": "3px"
+                                    }
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_monday",
+                                    "name": "Monday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_tuesday",
+                                    "name": "Tuesday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_wednesday",
+                                    "name": "Wednesday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_thursday",
+                                    "name": "Thursday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_friday",
+                                    "name": "Friday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_saturday",
+                                    "name": "Saturday"
+                                },
+                                {
+                                    "entity": "input_boolean.rafael_wakeup_sunday",
+                                    "name": "Sunday"
+                                }
+                            ],
+                            "title": "Wake-up Alarm Configuration",
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "grid",
+                            "square": false,
+                            "columns": 1,
+                            "cards": [
+                                {
+                                    "type": "weather-forecast",
+                                    "entity": "weather.home",
+                                    "show_forecast": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.wakeup_light_01r",
+                            "double_tap_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Rafael's Light"
+                        },
+                        {
+                            "type": "picture",
+                            "tap_action": {
+                                "action": "none"
+                            },
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "image": "/local/rafael.png"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

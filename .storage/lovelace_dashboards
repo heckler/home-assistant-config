@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "lovelace_dashboards",
+    "data": {
+        "items": [
+            {
+                "show_in_sidebar": true,
+                "icon": "mdi:account",
+                "title": "Rafael",
+                "require_admin": false,
+                "mode": "storage",
+                "url_path": "lovelace-rafael",
+                "id": "lovelace_rafael"
+            },
+            {
+                "show_in_sidebar": true,
+                "icon": "mdi:account",
+                "title": "Gabriela",
+                "require_admin": false,
+                "mode": "storage",
+                "url_path": "lovelace-gabriela",
+                "id": "lovelace_gabriela"
+            }
+        ]
+    }
+}

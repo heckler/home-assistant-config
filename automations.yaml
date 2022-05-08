@@ -50,6 +50,8 @@
         target:
           entity_id: scene.01r_light_pre_alarm_mode
         metadata: {}
+      timestamp_sensor: none
+      check_entity: sensor.rafael_wakeup_should_run
 - id: '1651602009310'
   alias: '[02-G] Wake-up light alarm'
   description: ''
@@ -65,3 +67,5 @@
         target:
           entity_id: scene.02g_light_pre_alarm_mode
         metadata: {}
+      timestamp_sensor: none
+      check_entity: sensor.gabriela_wakeup_should_run

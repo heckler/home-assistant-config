@@ -276,11 +276,19 @@
                         },
                         {
                             "type": "light",
-                            "entity": "light.wakeup_light_01r"
+                            "entity": "light.wakeup_light_01r",
+                            "double_tap_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Rafael's Light"
                         },
                         {
                             "type": "light",
-                            "entity": "light.wakeup_light_02g"
+                            "entity": "light.wakeup_light_02g",
+                            "double_tap_action": {
+                                "action": "more-info"
+                            },
+                            "name": "Gabriela's Light"
                         }
                     ],
                     "title": "Misc"

@@ -266,6 +266,29 @@ sensor:
         friendly_name: Status
 
 
+  # determine if Rafael's wake-up light should run today:
+  - platform: template
+    sensors:
+      rafael_wakeup_should_run:
+        value_template:  >
+          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+          {% set today_name = sensor_names[now().weekday()] %}
+          {% set entity_id = 'input_boolean.rafael_wakeup_'+today_name %}
+          {{ is_state('input_boolean.rafael_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+  # determine if Gabriela's wake-up light should run today:
+  - platform: template
+    sensors:
+      gabriela_wakeup_should_run:
+        value_template:  >
+          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+          {% set today_name = sensor_names[now().weekday()] %}
+          {% set entity_id = 'input_boolean.gabriela_wakeup_'+today_name %}
+          {{ is_state('input_boolean.gabriela_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+
+
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -337,5 +360,42 @@ alert:
       - telegram
     data:
       message: Freezer temperature too high
+
+
+
+
+# ----------------------------------------------------------------------------------
+# helper inputs for the two wake-up alarm lights
+# ----------------------------------------------------------------------------------
+
+# input_booleans to on/off days for the wake-up lights
+input_boolean: 
+  rafael_wakeup_enabled:
+  rafael_wakeup_monday:
+  rafael_wakeup_tuesday:
+  rafael_wakeup_wednesday:
+  rafael_wakeup_thursday:
+  rafael_wakeup_friday:
+  rafael_wakeup_saturday:
+  rafael_wakeup_sunday:
+  gabriela_wakeup_enabled:
+  gabriela_wakeup_monday:
+  gabriela_wakeup_tuesday:
+  gabriela_wakeup_wednesday:
+  gabriela_wakeup_thursday:
+  gabriela_wakeup_friday:
+  gabriela_wakeup_saturday:
+  gabriela_wakeup_sunday:
+
+# time of the wake-up alarms
+input_datetime:
+  rafael_wakeup_alarm_time:
+    name: Rafael Wake-up time
+    has_date: false
+    has_time: true
+  gabriela_wakeup_alarm_time:
+    name: Gabriela Wake-up time
+    has_date: false
+    has_time: true
 
 

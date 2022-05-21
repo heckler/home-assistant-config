@@ -190,6 +190,7 @@ sensor:
     sensors:
       problem_check:
         value_template: >-
+          {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
           {{ 
              is_state('sensor.balcony_uptime', 'unavailable') or 
              is_state('sensor.balcony_02_uptime', 'unavailable') or 
@@ -204,6 +205,7 @@ sensor:
              ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600)
           }}
+          {% endif %}
       problem_status:
         value_template: >-
           {% if states.sensor.problem_check %}
@@ -306,8 +308,11 @@ binary_sensor:
   - platform: template
     sensors:
       freezer_is_warm:
-        value_template: "{{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}"
         friendly_name: "Freezer temperature too high"
+        value_template: >-
+           {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
+           {{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}
+           {% endif %}
 
 alert:
   freezer_is_warm:

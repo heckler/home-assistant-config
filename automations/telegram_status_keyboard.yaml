@@ -16,7 +16,7 @@
       message: Control Panel
       data:
         inline_keyboard:
-          - "Temp:/temp, Freezer:/freezer, Ping:/ping, Light:/light"
+          - "Temp:/temp, Freezer:/freezer, Ping:/ping, Light:/light, Status:/status"
 
 
 ####################
@@ -60,6 +60,29 @@
 
 
 # ----------------------------------------------------------------------------------------------------
+# Telegram bot command to reply with status of selected entities (either 'ok' or 'unavailable')
+# ----------------------------------------------------------------------------------------------------
+- alias: 'Telegram bot command to reply with status of selected entities'
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: "/status"
+  action:
+    - service: notify.telegram
+      data_template:
+        message: |-
+          Current statuses:
+          ------------------------
+          {%- set sensor = 'sensor.problem_status' %}
+          {%- for attr in states[sensor].attributes %}
+          {%- if (attr != 'friendly_name') %}
+          {{ attr }}: {{ states[sensor].attributes[attr] }}
+          {%- endif %}
+          {%- endfor %}
+
+
+# ----------------------------------------------------------------------------------------------------
 # Telegram bot command to reply with list of tempetarure values
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to reply with list of tempetarure values'
@@ -78,7 +101,6 @@
           Laundry room: {{ states.sensor.freezer_external_temperature.state_with_unit }}
           Living room: {{ states.sensor.balcony_02_temperature_bmp.state_with_unit }}
           Balcony: {{ states.sensor.balcony_temperature.state_with_unit }}
-
 
 
 # ----------------------------------------------------------------------------------------------------

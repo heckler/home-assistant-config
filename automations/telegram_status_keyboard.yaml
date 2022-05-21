@@ -72,14 +72,17 @@
     - service: notify.telegram
       data_template:
         message: |-
-          Current statuses:
-          ------------------------
+          ```
+          +---------------------------+
+          |      Current statuses:    |
+          +---------------------------+
           {%- set sensor = 'sensor.problem_status' %}
           {%- for attr in states[sensor].attributes %}
           {%- if (attr != 'friendly_name') %}
           {{ attr }}: {{ states[sensor].attributes[attr] }}
           {%- endif %}
           {%- endfor %}
+          -----------------------------```
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -95,12 +98,14 @@
     - service: notify.telegram
       data_template:
         message: |-
+          ```
           Current temperatures:
           ---------------------
-          Freezer: {{ states.sensor.freezer_internal_temperature.state_with_unit }}
+          Freezer:     {{ states.sensor.freezer_internal_temperature.state_with_unit }}
           Laundry room: {{ states.sensor.freezer_external_temperature.state_with_unit }}
-          Living room: {{ states.sensor.balcony_02_temperature_bmp.state_with_unit }}
-          Balcony: {{ states.sensor.balcony_temperature.state_with_unit }}
+          Living room:  {{ states.sensor.balcony_02_temperature_bmp.state_with_unit }}
+          Balcony:      {{ states.sensor.balcony_temperature.state_with_unit }}
+          ```
 
 
 # ----------------------------------------------------------------------------------------------------

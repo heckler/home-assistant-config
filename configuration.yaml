@@ -341,13 +341,17 @@ alert:
     notifiers:
       - telegram
     message: |-
-      There is a problem:
+      ```
+      -----------------------------
+           There is a problem:
+      -----------------------------
       {%- set sensor = 'sensor.problem_status' %}
       {%- for attr in states[sensor].attributes %}
       {%- if (attr != 'friendly_name') %}
       {{ attr }}: {{ states[sensor].attributes[attr] }}
       {%- endif %}
       {%- endfor %}
+      -----------------------------```
 
 
 # ----------------------------------------------------------------------------------

@@ -295,10 +295,12 @@ scene: !include scenes.yaml
 
 
 # ----------------------------------------------------------------------------------
-# (experiment) Telegram alarm for high freezer temperature
+# Binary sensors
 # ----------------------------------------------------------------------------------
 
 binary_sensor:
+  
+  # Binary sensor for high freezer temperature
   - platform: template
     sensors:
       freezer_is_warm:
@@ -306,20 +308,46 @@ binary_sensor:
         value_template: >-
            {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
            {{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}
+           {% else %} 
+           {{ False }}
            {% endif %}
 
+
+# ----------------------------------------------------------------------------------
+# Alerts
+# ----------------------------------------------------------------------------------
+
 alert:
+
+  # Telegram alert for high freezer temperature
   freezer_is_warm:
     name: "Freezer temperature too high"
     entity_id: binary_sensor.freezer_is_warm
-    repeat: 30
+    repeat: 15
     skip_first: true
     notifiers:
       - telegram
-    data:
-      message: Freezer temperature too high
+    message: "Freezer temperature too high: {{ states.sensor.freezer_internal_temperature.state_with_unit }}"
 
-
+  # Telegram alert is an entity is unavailable
+  problem_with_entities:
+    name: "Problem with one or more entities"
+    entity_id: sensor.problem_check
+    state: true
+    repeat:
+      - 10
+      - 60
+    skip_first: true
+    notifiers:
+      - telegram
+    message: |-
+      There is a problem:
+      {%- set sensor = 'sensor.problem_status' %}
+      {%- for attr in states[sensor].attributes %}
+      {%- if (attr != 'friendly_name') %}
+      {{ attr }}: {{ states[sensor].attributes[attr] }}
+      {%- endif %}
+      {%- endfor %}
 
 
 # ----------------------------------------------------------------------------------

@@ -185,7 +185,7 @@ sensor:
     - "date"
 
 
-# availability-base indication of problems with the sensors
+# availability-based indication of problems with the sensors
   - platform: template
     sensors:
       problem_check:
@@ -195,12 +195,20 @@ sensor:
              is_state('sensor.balcony_uptime', 'unavailable') or 
              is_state('sensor.balcony_02_uptime', 'unavailable') or 
              is_state('sensor.fireplace_light_uptime', 'unavailable') or 
+             is_state('sensor.freezer_uptime', 'unavailable') or 
+             is_state('sensor.irrigation_pump_uptime', 'unavailable') or 
+             is_state('sensor.wake_up_light_01_r_uptime', 'unavailable') or 
+             is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_a_powera', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_b_powerb', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_c_powerc', 'unavailable') or 
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
+             ( (now() - states.sensor.freezer_uptime).total_seconds() > 600) or
+             ( (now() - states.sensor.irrigation_pump_uptime).total_seconds() > 600) or
+             ( (now() - states.sensor.wake_up_light_01_r_uptime).total_seconds() > 600) or
+             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600)
@@ -221,6 +229,10 @@ sensor:
           Balcony_01: '{% if is_state("sensor.balcony_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}' 
           Balcony_02: '{% if is_state("sensor.balcony_02_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Fireplace_light: '{% if is_state("sensor.fireplace_light_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Freezer: '{% if is_state("sensor.freezer_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.freezer_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Wake_up_light_01R: '{% if is_state("sensor.wake_up_light_01_r_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_01_r_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_A: '{% if is_state("sensor.emoncms_node_emontx3_a_powera", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_B: '{% if is_state("sensor.emoncms_node_emontx3_b_powerb", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_C: '{% if is_state("sensor.emoncms_node_emontx3_c_powerc", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'

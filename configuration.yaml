@@ -52,14 +52,6 @@ recorder:
       - sensor.emoncms_node_emontx3_c_powerc
       - sensor.emoncms_node_emontx3_c_powerc_kwh
       - sensor.emoncms_node_emontx3_c_vrms
-      - sensor.nh_to_chacara
-      - sensor.nh_to_poa
-      - sensor.poa_to_nh
-      - sensor.speedtest_ping
-      - sensor.speedtest_upload
-      - sensor.speedtest_download
-      - sensor.brazil_coronavirus_deaths
-      - sensor.brazil_coronavirus_current
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
@@ -98,14 +90,6 @@ influxdb:
       - sensor.emoncms_node_emontx3_c_powerc
       - sensor.emoncms_node_emontx3_c_powerc_kwh
       - sensor.emoncms_node_emontx3_c_vrms
-      - sensor.nh_to_chacara
-      - sensor.nh_to_poa
-      - sensor.poa_to_nh
-      - sensor.speedtest_ping
-      - sensor.speedtest_upload
-      - sensor.speedtest_download
-      - sensor.brazil_coronavirus_deaths
-      - sensor.brazil_coronavirus_current
       - sensor.balcony_02_pressure
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
@@ -213,16 +197,12 @@ sensor:
              is_state('sensor.emoncms_node_emontx3_a_powera', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_b_powerb', 'unavailable') or 
              is_state('sensor.emoncms_node_emontx3_c_powerc', 'unavailable') or 
-             is_state('sensor.nh_to_poa', 'unavailable') or 
-             is_state('sensor.speedtest_download', 'unavailable') or
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.nh_to_poa.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.speedtest_download.last_updated).total_seconds() > 4000)
+             ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600)
           }}
       problem_status:
         value_template: >-
@@ -242,8 +222,6 @@ sensor:
           Emoncms_power_A: '{% if is_state("sensor.emoncms_node_emontx3_a_powera", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_B: '{% if is_state("sensor.emoncms_node_emontx3_b_powerb", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Emoncms_power_C: '{% if is_state("sensor.emoncms_node_emontx3_c_powerc", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Waze: '{% if is_state("sensor.nh_to_poa", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.nh_to_poa.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Speedtest: '{% if is_state("sensor.speedtest_download", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.speedtest_download.last_updated).total_seconds() > 4000) %} Stale {% else %} OK {% endif %} {% endif %}'
         friendly_name: Status
 
 

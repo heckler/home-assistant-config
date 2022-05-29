@@ -36,7 +36,7 @@
     domain: switch
   mode: single
 - id: '1651531753854'
-  alias: '[01-R] Wake-up light alarm'
+  alias: Wake-up light alarm [01-R]
   description: ''
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
@@ -53,7 +53,7 @@
       timestamp_sensor: none
       check_entity: sensor.rafael_wakeup_should_run
 - id: '1651602009310'
-  alias: '[02-G] Wake-up light alarm'
+  alias: Wake-up light alarm [02-G]
   description: ''
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
@@ -69,3 +69,20 @@
         metadata: {}
       timestamp_sensor: none
       check_entity: sensor.gabriela_wakeup_should_run
+- id: '1653415482777'
+  alias: Wake up lights - turn them both off
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 0a96aa6d9a590bab9bf170d253b79ac8
+    entity_id: light.wakeup_light_01r
+    domain: light
+  - type: turn_off
+    device_id: 131e6b8137a459190bce5c449564c686
+    entity_id: light.wakeup_light_02g
+    domain: light
+  mode: single

@@ -22,6 +22,12 @@ frontend:
    #themes: !include_dir_merge_named themes/
 
 
+# Sun integration - local sunrise and sunset times
+# for using with the 'sun-card' from https://github.com/AitorDB/home-assistant-sun-card/
+sun:
+
+
+
 # ----------------------------------------------------------------------------------
 # Recorder configuration - limit which entities have history preserved
 # ----------------------------------------------------------------------------------

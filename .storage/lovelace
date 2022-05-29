@@ -125,6 +125,16 @@
                             "refresh_interval": 0
                         },
                         {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                }
+                            ],
+                            "hours_to_show": 120,
+                            "refresh_interval": 0
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.balcony_temperature",
@@ -136,14 +146,10 @@
                             "type": "history-graph"
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.memory_use_percent"
-                                }
-                            ],
-                            "hours_to_show": 120,
-                            "refresh_interval": 0
+                            "type": "custom:sun-card",
+                            "showAzimuth": true,
+                            "showElevation": true,
+                            "timeFormat": "24h"
                         }
                     ],
                     "panel": false,
@@ -239,6 +245,10 @@
                         {
                             "entity": "media_player.living_room_speaker",
                             "type": "media-control"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.tv_samsung_k6500"
                         }
                     ],
                     "title": "Media"

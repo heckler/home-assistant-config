@@ -32,34 +32,6 @@
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
   # ----------------------------------------------------------------------------------------------------
-  # Periodic status update (power, temperature, etc)
-  # ----------------------------------------------------------------------------------------------------
-
-  #- alias: Periodic slack status update of select sensor values
-  #  trigger:
-  #    platform: time_pattern
-  #    minutes: "/30"     # every 30 minutes
-  #  action:
-  #    - service: notify.slack
-  #      data_template:
-  #        message: ''
-  #        target:
-  #        - "#home-automation"
-  #        data:
-  #          attachments:
-  #          - color: "#00A7FF"
-  #            title: "Home-Hub Status:"
-  #            text: |-
-  #              House power: {{ states('sensor.emoncms_home_power') }} W
-  #              Balcony temp: {{ states('sensor.balcony_temperature') }} oC
-  #              Balcony humidity: {{ states('sensor.balcony_02_humidity') }} %
-  #              Atm pressure: {{ states('sensor.balcony_02_pressure') }} hPa
-  #              Office temp: {{ states('sensor.balcony_02_temperature_bmp') }} oC
-  #              Power A: {{ states('sensor.emoncms_node_emontx3_a_powera') }} W
-  #              Power B: {{ states('sensor.emoncms_node_emontx3_b_powerb') }} W
-  #              Power C: {{ states('sensor.emoncms_node_emontx3_c_powerc') }} W
-
-  # ----------------------------------------------------------------------------------------------------
   # Notification for the startup event (power cycle?)
   # ----------------------------------------------------------------------------------------------------
 
@@ -71,70 +43,6 @@
       - service: notify.telegram
         data:
           message: 'Home assistant has started'
-
-  # ----------------------------------------------------------------------------------------------------
-  # Notifications for 'EmonTx nodes have stopped sending updates':
-  # ----------------------------------------------------------------------------------------------------
-
-  # TODO: consider replacing the notifications below with 'counter' based notifications:
-  #   - have a counter starting at 10, decreased every minute via a time-based action
-  #   - counter is incremented via an action based on sensor updates
-  #   - if counter reaches zero, fire notification 
-  #   - if incrementing from zero, fire "back online" notification
-  #   
-  #   https://www.home-assistant.io/integrations/counter/
-
-  #- alias: Notify if EmonTx_A hasn't updated
-  #  trigger:
-  #    platform: template
-  #    value_template: >
-  #      {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_a_powera.last_changed) )  > 300 }}
-  #  action:
-  #    - service: notify.slack
-  #      data:
-  #        message: ''
-  #        target:
-  #        - "#alerts"
-  #        data:
-  #          attachments:
-  #          - color: "#FF0000"
-  #            title: Sensor failed to update
-  #            text: Sensor EmonTx A has not updated in a while
-
-  #- alias: Notify if EmonTx_B hasn't updated
-  #  trigger:
-  #    platform: template
-  #    value_template: >
-  #      {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_b_powerb.last_changed) )  > 300 }}
-  #  action:
-  #    - service: notify.slack
-  #      data:
-  #        message: ''
-  #        target:
-  #        - "#alerts"
-  #        data:
-  #          attachments:
-  #          - color: "#FF0000"
-  #            title: Sensor failed to update
-  #            text: Sensor EmonTx B has not updated in a while
-
-  #- alias: Notify if EmonTx_C hasn't updated
-  #  trigger:
-  #    platform: template
-  #    value_template: >
-  #      {{ (as_timestamp(strptime(states('sensor.date_time_utc'),'%Y-%m-%d, %H:%M')) - as_timestamp(states.sensor.emoncms_node_emontx3_c_powerc.last_changed) )  > 300 }}
-  #  action:
-  #    - service: notify.slack
-  #      data:
-  #        message: ''
-  #        target:
-  #        - "#alerts"
-  #        data:
-  #          attachments:
-  #          - color: "#FF0000"
-  #            title: Sensor failed to update
-  #            text: Sensor EmonTx C has not updated in a while
-  
 
 
   # ----------------------------------------------------------------------------------------------------

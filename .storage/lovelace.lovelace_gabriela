@@ -1,91 +1,127 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace.lovelace_gabriela",
-    "data": {
-        "config": {
-            "views": [
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace.lovelace_gabriela",
+  "data": {
+    "config": {
+      "views": [
+        {
+          "title": "Home",
+          "cards": [
+            {
+              "show_name": true,
+              "show_icon": true,
+              "show_state": true,
+              "type": "glance",
+              "entities": [
                 {
-                    "title": "Home",
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_enabled",
-                                    "name": "Wake-up enabled"
-                                },
-                                {
-                                    "type": "divider",
-                                    "style": {
-                                        "height": "3px"
-                                    }
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_monday",
-                                    "name": "Monday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_tuesday",
-                                    "name": "Tuesday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_wednesday",
-                                    "name": "Wednesday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_thursday",
-                                    "name": "Thursday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_friday",
-                                    "name": "Friday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_saturday",
-                                    "name": "Saturday"
-                                },
-                                {
-                                    "entity": "input_boolean.gabriela_wakeup_sunday",
-                                    "name": "Sunday"
-                                }
-                            ],
-                            "title": "Wake-up Alarm Configuration",
-                            "show_header_toggle": false
-                        },
-                        {
-                            "type": "grid",
-                            "square": false,
-                            "columns": 1,
-                            "cards": [
-                                {
-                                    "type": "weather-forecast",
-                                    "entity": "weather.home",
-                                    "show_forecast": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "light",
-                            "entity": "light.wakeup_light_02g",
-                            "double_tap_action": {
-                                "action": "more-info"
-                            },
-                            "name": "Gabriela's Light"
-                        },
-                        {
-                            "type": "picture",
-                            "image": "/local/gabriela.png",
-                            "tap_action": {
-                                "action": "none"
-                            },
-                            "hold_action": {
-                                "action": "none"
-                            }
-                        }
-                    ]
+                  "entity": "sensor.living_room_02_temperature",
+                  "name": "Living room"
+                },
+                {
+                  "entity": "sensor.balcony_temperature",
+                  "name": "Balcony"
+                },
+                {
+                  "entity": "switch.fireplace_light_relay",
+                  "name": "Fireplace",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "double_tap_action": {
+                    "action": "more-info"
+                  }
+                },
+                {
+                  "entity": "light.wakeup_light_02g",
+                  "name": "Room light",
+                  "tap_action": {
+                    "action": "toggle"
+                  },
+                  "double_tap_action": {
+                    "action": "more-info"
+                  }
                 }
-            ]
+              ]
+            },
+            {
+              "type": "grid",
+              "square": false,
+              "columns": 1,
+              "cards": [
+                {
+                  "type": "weather-forecast",
+                  "entity": "weather.home",
+                  "show_forecast": false
+                }
+              ]
+            },
+            {
+              "type": "light",
+              "entity": "light.wakeup_light_02g",
+              "double_tap_action": {
+                "action": "more-info"
+              },
+              "name": "Gabriela's Light"
+            },
+            {
+              "type": "picture",
+              "image": "/local/gabriela.png",
+              "tap_action": {
+                "action": "none"
+              },
+              "hold_action": {
+                "action": "none"
+              }
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "input_boolean.gabriela_wakeup_enabled",
+                  "name": "Wake-up enabled"
+                },
+                {
+                  "type": "divider",
+                  "style": {
+                    "height": "3px"
+                  }
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_monday",
+                  "name": "Monday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_tuesday",
+                  "name": "Tuesday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_wednesday",
+                  "name": "Wednesday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_thursday",
+                  "name": "Thursday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_friday",
+                  "name": "Friday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_saturday",
+                  "name": "Saturday"
+                },
+                {
+                  "entity": "input_boolean.gabriela_wakeup_sunday",
+                  "name": "Sunday"
+                }
+              ],
+              "title": "Wake-up Alarm Configuration",
+              "show_header_toggle": false
+            }
+          ]
         }
+      ]
     }
+  }
 }

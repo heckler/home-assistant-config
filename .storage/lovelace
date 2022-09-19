@@ -143,6 +143,17 @@
               "type": "history-graph"
             },
             {
+              "entities": [
+                {
+                  "entity": "sensor.balcony_02_pressure",
+                  "name": "Balcony pressure"
+                }
+              ],
+              "hours_to_show": 48,
+              "refresh_interval": 0,
+              "type": "history-graph"
+            },
+            {
               "type": "custom:sun-card",
               "showAzimuth": true,
               "showElevation": true,

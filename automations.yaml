@@ -12,26 +12,35 @@
   description: "Activates the \x7Firrigation pump"
   trigger:
   - platform: time
-    at: '18:00:00'
+    at: '18:01:00'
   condition: []
   action:
   - type: turn_on
-    device_id: aca0a8c88a31a63fc14b5277734a029f
+    device_id: 5659a6ebcaae86d3282023e3b2b80bb2
+    entity_id: switch.irrigation_pump_relay
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 30
+      milliseconds: 0
+  - type: turn_off
+    device_id: 5659a6ebcaae86d3282023e3b2b80bb2
     entity_id: switch.irrigation_pump_relay
     domain: switch
   mode: single
 - id: '1633902953506'
-  alias: Irrigation Pump - turn OFF
+  alias: Irrigation Pump - periodic safety turn OFF
   description: "Deactivates the \x7Firrigation pump"
   trigger:
-  - platform: time
-    at: '18:01:00'
-  - platform: time
-    at: 04:01:00
+  - platform: time_pattern
+    minutes: /7
+    seconds: '30'
+    hours: '*'
   condition: []
   action:
   - type: turn_off
-    device_id: aca0a8c88a31a63fc14b5277734a029f
+    device_id: 5659a6ebcaae86d3282023e3b2b80bb2
     entity_id: switch.irrigation_pump_relay
     domain: switch
   mode: single

@@ -117,7 +117,8 @@
                 }
               ],
               "title": "Wake-up Alarm Configuration",
-              "show_header_toggle": false
+              "show_header_toggle": false,
+              "state_color": true
             }
           ]
         }

@@ -1,7 +1,7 @@
 
-#############################
-### Start Inline Keyboard ###
-#############################
+# ----------------------------------------------------------------------------------------------------
+# Control Panel (/cp) inline keyboard 
+# ----------------------------------------------------------------------------------------------------
 - id: telegram-control-pannel-start
   alias: 'Telegram Control Pannel Command'
   initial_state: 'on'
@@ -18,7 +18,9 @@
         inline_keyboard:
           - "Temp:/temp, Freezer:/freezer, Ping:/ping, Light:/light, Status:/status"
 
-# System menu
+# ----------------------------------------------------------------------------------------------------
+# System Menu (/system) inline keyboard 
+# ----------------------------------------------------------------------------------------------------
 - id: telegram-systme-meny-start
   alias: 'Telegram System Menu'
   initial_state: 'on'
@@ -36,9 +38,9 @@
           - "Status:/status, Core Restart:/restart"
 
 
-####################
-### IK Ping Pong ###
-####################
+# ----------------------------------------------------------------------------------------------------
+# IK Ping Pong
+# ----------------------------------------------------------------------------------------------------
 - id: telegram-ik-ping-pong
   alias: 'telegram ping pong'
   trigger:

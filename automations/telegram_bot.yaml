@@ -67,10 +67,14 @@
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command that informs the status of the freezer'
   trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: "/freezer"
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/freezer"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/freezer"
   action:
     - service: notify.telegram
       data_template:
@@ -83,10 +87,14 @@
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to reply with status of selected entities'
   trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: "/status"
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/status"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/status"
   action:
     - service: notify.telegram
       data_template:
@@ -109,10 +117,14 @@
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to reply with list of tempetarure values'
   trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: "/temp"
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/temp"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/temp"
   action:
     - service: notify.telegram
       data_template:
@@ -132,10 +144,14 @@
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to toggle the fireplace light'
   trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: "/light"
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/light"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/light"
   action:
     - service: switch.toggle
       target:
@@ -152,12 +168,17 @@
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to force a core restart'
   trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: "/restart"
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/restart"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/restart"
   action:
     - service: notify.telegram
       data_template:
         message: "Restarting Home Assistant Core ..."
     - service: homeassistant.restart
+

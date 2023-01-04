@@ -41,17 +41,6 @@ recorder:
       - sensor.balcony_humidity
       - sensor.balcony_temperature
       - sensor.balcony_02_pressure
-      - sensor.emoncms_home_power
-      - sensor.emoncms_home_power_kwh
-      - sensor.emoncms_node_emontx3_a_powera
-      - sensor.emoncms_node_emontx3_a_powera_kwh
-      - sensor.emoncms_node_emontx3_a_vrms
-      - sensor.emoncms_node_emontx3_b_powerb
-      - sensor.emoncms_node_emontx3_b_powerb_kwh
-      - sensor.emoncms_node_emontx3_b_vrms
-      - sensor.emoncms_node_emontx3_c_powerc
-      - sensor.emoncms_node_emontx3_c_powerc_kwh
-      - sensor.emoncms_node_emontx3_c_vrms
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
@@ -82,17 +71,6 @@ influxdb:
     entities:
       - sensor.balcony_humidity
       - sensor.balcony_temperature
-      - sensor.emoncms_home_power
-      - sensor.emoncms_home_power_kwh
-      - sensor.emoncms_node_emontx3_a_powera
-      - sensor.emoncms_node_emontx3_a_powera_kwh
-      - sensor.emoncms_node_emontx3_a_vrms
-      - sensor.emoncms_node_emontx3_b_powerb
-      - sensor.emoncms_node_emontx3_b_powerb_kwh
-      - sensor.emoncms_node_emontx3_b_vrms
-      - sensor.emoncms_node_emontx3_c_powerc
-      - sensor.emoncms_node_emontx3_c_powerc_kwh
-      - sensor.emoncms_node_emontx3_c_vrms
       - sensor.balcony_02_pressure
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
@@ -140,38 +118,6 @@ sensor:
     value_template: '{{ value | multiply(0.001) | round(1) }}'
 
 
-  # ----------------------------------------------------------------------------------
-  # EmonCMS sensor patform, CAH 2019-10-25
-  # info:  https://www.home-assistant.io/integrations/emoncms
-  # feeds: http://emonpi/emoncms/feed/list
-  # ----------------------------------------------------------------------------------
-  # faster update for the instant power and current feeds
-  - platform: emoncms
-    api_key: !secret emoncms_api_key
-    url: !secret emoncms_url
-    id: 1
-    scan_interval: 10
-    include_only_feed_id:
-      - 2
-      - 5
-      - 3
-      - 8
-      - 4
-      - 10
-      - 17
-  # slower update rate for the accumulated power feeds
-  - platform: emoncms
-    api_key: !secret emoncms_api_key
-    url: !secret emoncms_url
-    id: 1
-    scan_interval: 60
-    include_only_feed_id:
-      - 6
-      - 9
-      - 11
-      - 18
-
-
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute
   - platform: time_date
     display_options:
@@ -194,19 +140,13 @@ sensor:
              is_state('sensor.irrigation_pump_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_01_r_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
-             is_state('sensor.emoncms_node_emontx3_a_powera', 'unavailable') or 
-             is_state('sensor.emoncms_node_emontx3_b_powerb', 'unavailable') or 
-             is_state('sensor.emoncms_node_emontx3_c_powerc', 'unavailable') or 
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.freezer_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.irrigation_pump_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.wake_up_light_01_r_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600)
+             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600)
           }}
           {% endif %}
       problem_status:
@@ -228,9 +168,6 @@ sensor:
           Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Wake_up_light_01R: '{% if is_state("sensor.wake_up_light_01_r_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_01_r_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Emoncms_power_A: '{% if is_state("sensor.emoncms_node_emontx3_a_powera", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_a_powera.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Emoncms_power_B: '{% if is_state("sensor.emoncms_node_emontx3_b_powerb", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_b_powerb.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Emoncms_power_C: '{% if is_state("sensor.emoncms_node_emontx3_c_powerc", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.emoncms_node_emontx3_c_powerc.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
         friendly_name: Status
 
 
@@ -282,16 +219,6 @@ notify:
   - platform: telegram
     name: telegram
     chat_id: !secret telegram_chat_id_1
-
-
-# ----------------------------------------------------------------------------------
-# iFrame panel: extra links
-# info: https://www.home-assistant.io/integrations/panel_iframe/
-# ----------------------------------------------------------------------------------
-panel_iframe:
-  emon_cms:
-    title: 'EmonCMS'
-    url: 'http://emonpi.local/emoncms/dashboard/view/cah'
 
 
 # load manually created automations from a subfolder:

@@ -19,7 +19,9 @@
             "sensor.memory_use_percent",
             "sensor.disk_use_percent",
             "sensor.swap_free",
-            "sensor.cpu_temperature"
+            "sensor.cpu_temperature",
+            "sensor.co2_signal_co2_intensity",
+            "sensor.co2_signal_grid_fossil_fuel_percentage"
           ],
           "cards": [
             {

@@ -51,8 +51,6 @@ recorder:
       - switch.irrigation_pump_relay
       - switch.fireplace_light_relay
       - sensor.problem_status
-      - sensor.co2_signal_co2_intensity
-      - sensor.co2_signal_grid_fossil_fuel_percentage
 
 
 
@@ -76,8 +74,6 @@ influxdb:
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
       - sensor.fridge_freezer_temperature
-      - sensor.co2_signal_co2_intensity
-      - sensor.co2_signal_grid_fossil_fuel_percentage
   component_config_glob:
     sensor.*humidity:
       override_measurement: humidity

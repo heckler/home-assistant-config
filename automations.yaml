@@ -50,9 +50,9 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:25:00
+      manual_time: 06:30:00
       light_entity: light.wakeup_light_01r
-      sunrise_duration: 10
+      sunrise_duration: 15
       end_brightness: 255
       pre_sunrise_actions:
       - service: scene.turn_on
@@ -69,7 +69,7 @@
     input:
       manual_time: 06:30:00
       light_entity: light.wakeup_light_02g
-      sunrise_duration: 10
+      sunrise_duration: 15
       end_brightness: 255
       pre_sunrise_actions:
       - service: scene.turn_on

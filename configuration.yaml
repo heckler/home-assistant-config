@@ -83,12 +83,6 @@ influxdb:
       override_measurement: pressure
 
 
-# weather platforms
-weather:
-  - platform: darksky
-    name: weather-1
-    api_key: !secret darksky_api_key
-  
 
 # ----------------------------------------------------------------------------------
 # Sensors

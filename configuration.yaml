@@ -106,14 +106,6 @@ sensor:
       - type: last_boot
 
 
-  # CPU temperature, using commmand_line sensor:
-  - platform: command_line
-    name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute
   - platform: time_date
     display_options:
@@ -189,8 +181,22 @@ sensor:
 
 
 
+# ----------------------------------------------------------------------------------
+# Command-line sensors
+# ----------------------------------------------------------------------------------
+command_line:
+  # CPU temperature, using commmand_line sensor:
+  - sensor:
+      name: CPU Temperature
+      command: 'cat /sys/class/thermal/thermal_zone0/temp'
+      unit_of_measurement: '°C'
+      value_template: '{{ value | multiply(0.001) | round(1) }}'
 
+
+
+# ----------------------------------------------------------------------------------
 # Text to speech
+# ----------------------------------------------------------------------------------
 tts:
   - platform: google_translate
     service_name: google_say

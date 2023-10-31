@@ -21,7 +21,7 @@
     domain: switch
   - delay:
       hours: 0
-      minutes: 1
+      minutes: 0
       seconds: 30
       milliseconds: 0
   - type: turn_off

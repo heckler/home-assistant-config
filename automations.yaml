@@ -15,6 +15,15 @@
     at: '18:01:00'
   condition: []
   action:
+  - service: notify.telegram
+    data:
+      title: Irrigation alert
+      message: Irrigation will start in 30 seconds
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
   - type: turn_on
     device_id: 5659a6ebcaae86d3282023e3b2b80bb2
     entity_id: switch.irrigation_pump_relay

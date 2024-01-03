@@ -31,7 +31,7 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 30
+      seconds: 45
       milliseconds: 0
   - type: turn_off
     device_id: 5659a6ebcaae86d3282023e3b2b80bb2

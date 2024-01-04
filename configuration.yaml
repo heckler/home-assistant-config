@@ -89,17 +89,6 @@ influxdb:
 # ----------------------------------------------------------------------------------
 sensor:
 
-  # System monitor: CPU, Memory and disk:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_use_percent
-      - type: load_1m
-      - type: swap_free
-      - type: last_boot
-
-
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute
   - platform: time_date
     display_options:

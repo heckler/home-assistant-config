@@ -41,6 +41,8 @@ recorder:
       - sensor.balcony_humidity
       - sensor.balcony_temperature
       - sensor.balcony_02_pressure
+      - sensor.balcony_02_temperature_bmp
+      - sensor.living_room_02_temperature
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
@@ -70,6 +72,8 @@ influxdb:
       - sensor.balcony_humidity
       - sensor.balcony_temperature
       - sensor.balcony_02_pressure
+      - sensor.balcony_02_temperature_bmp
+      - sensor.living_room_02_temperature
       - sensor.freezer_internal_temperature
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature

@@ -44,6 +44,25 @@
               ]
             },
             {
+              "entities": [
+                {
+                  "entity": "sensor.balcony_temperature",
+                  "name": "Balcony temperature"
+                },
+                {
+                  "entity": "sensor.balcony_02_pressure",
+                  "name": "Balcony pressure"
+                },
+                {
+                  "entity": "sensor.balcony_02_temperature_bmp",
+                  "name": "Living room temperature"
+                }
+              ],
+              "hours_to_show": 48,
+              "refresh_interval": 0,
+              "type": "history-graph"
+            },
+            {
               "show_name": true,
               "show_icon": true,
               "show_state": true,
@@ -92,55 +111,17 @@
               ]
             },
             {
-              "entities": [
-                {
-                  "entity": "sensor.freezer_internal_temperature",
-                  "name": "Freezer"
-                },
-                {
-                  "entity": "sensor.fridge_main_temperature",
-                  "name": "Fridge Down"
-                },
-                {
-                  "entity": "sensor.fridge_freezer_temperature",
-                  "name": "Fridge Up"
-                }
-              ],
-              "hours_to_show": 48,
-              "type": "history-graph",
-              "refresh_interval": 0
-            },
-            {
               "type": "history-graph",
               "entities": [
                 {
                   "entity": "sensor.memory_use_percent"
+                },
+                {
+                  "entity": "sensor.freezer_internal_temperature"
                 }
               ],
               "hours_to_show": 120,
               "refresh_interval": 0
-            },
-            {
-              "entities": [
-                {
-                  "entity": "sensor.balcony_temperature",
-                  "name": "Balcony temperature"
-                }
-              ],
-              "hours_to_show": 48,
-              "refresh_interval": 0,
-              "type": "history-graph"
-            },
-            {
-              "entities": [
-                {
-                  "entity": "sensor.balcony_02_pressure",
-                  "name": "Balcony pressure"
-                }
-              ],
-              "hours_to_show": 48,
-              "refresh_interval": 0,
-              "type": "history-graph"
             },
             {
               "type": "custom:sun-card",
@@ -244,6 +225,34 @@
                 "action": "more-info"
               },
               "name": "Gabriela's Light"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "select.wled_playlist",
+                  "name": "Playlist"
+                },
+                {
+                  "entity": "select.wled_preset",
+                  "name": "Preset"
+                },
+                "light.wled"
+              ],
+              "title": "wled01"
+            },
+            {
+              "type": "light",
+              "entity": "light.wled",
+              "name": "wled01"
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                "sensor.balcony_02_temperature_bmp",
+                "sensor.living_room_02_temperature"
+              ],
+              "hours_to_show": 48
             }
           ],
           "title": "Misc"

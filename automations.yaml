@@ -31,7 +31,7 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 45
+      seconds: 20
       milliseconds: 0
   - type: turn_off
     device_id: 5659a6ebcaae86d3282023e3b2b80bb2
@@ -59,7 +59,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:30:00
+      manual_time: 06:20:00
       light_entity: light.wakeup_light_01r
       sunrise_duration: 15
       end_brightness: 255
@@ -76,7 +76,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:30:00
+      manual_time: 06:05:00
       light_entity: light.wakeup_light_02g
       sunrise_duration: 15
       end_brightness: 255

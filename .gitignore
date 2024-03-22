@@ -27,3 +27,5 @@ home-assistant_v2.db-wal
 # log files
 home-assistant.log*
 
+image/*
+

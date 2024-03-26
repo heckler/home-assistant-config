@@ -99,14 +99,12 @@
                   }
                 },
                 {
-                  "entity": "switch.irrigation_pump_relay",
-                  "name": "Irrigation",
-                  "tap_action": {
-                    "action": "more-info"
-                  },
-                  "double_tap_action": {
-                    "action": "more-info"
-                  }
+                  "entity": "light.wledescritorio",
+                  "name": "Office"
+                },
+                {
+                  "entity": "light.wledrafael",
+                  "name": "Rafael"
                 }
               ]
             },

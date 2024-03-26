@@ -2,10 +2,15 @@
   name: 01-R Light to pre-alarm mode
   entities:
     light.wakeup_light_01r:
+      effect_list:
+      - None
+      - Pulse
+      - Random
+      - Strobe
+      - Flicker
       supported_color_modes:
       - rgbww
-      friendly_name: wakeup_light_01r
-      supported_features: 40
+      effect: None
       color_mode: rgbww
       brightness: 3
       hs_color:
@@ -15,17 +20,235 @@
       - 255
       - 75
       - 41
+      xy_color:
+      - 0.654
+      - 0.32
       rgbww_color:
       - 255
       - 7
       - 0
       - 5
       - 179
-      xy_color:
-      - 0.654
-      - 0.32
+      friendly_name: wakeup_light_01r
+      supported_features: 44
       state: 'on'
+    light.wledrafael:
+      effect_list:
+      - Akemi
+      - Android
+      - Aurora
+      - Black Hole
+      - Blends
+      - Blink
+      - Blink Rainbow
+      - Blobs
+      - Blurz
+      - Bouncing Balls
+      - Bpm
+      - Breathe
+      - Candle
+      - Candle Multi
+      - Chase
+      - Chase 2
+      - Chase 3
+      - Chase Flash
+      - Chase Flash Rnd
+      - Chase Rainbow
+      - Chase Random
+      - Chunchun
+      - Colored Bursts
+      - Colorful
+      - Colorloop
+      - Colortwinkles
+      - Colorwaves
+      - Crazy Bees
+      - DJ Light
+      - DNA
+      - DNA Spiral
+      - Dancing Shadows
+      - Dissolve
+      - Dissolve Rnd
+      - Distortion Waves
+      - Drift
+      - Drift Rose
+      - Drip
+      - Dynamic
+      - Dynamic Smooth
+      - Fade
+      - Fairy
+      - Fairytwinkle
+      - Fill Noise
+      - Fire 2012
+      - Fire Flicker
+      - Firenoise
+      - Fireworks
+      - Fireworks 1D
+      - Fireworks Starburst
+      - Flow
+      - Flow Stripe
+      - Freqmap
+      - Freqmatrix
+      - Freqpixels
+      - Freqwave
+      - Frizzles
+      - Funky Plank
+      - GEQ
+      - Game Of Life
+      - Ghost Rider
+      - Glitter
+      - Gradient
+      - Gravcenter
+      - Gravcentric
+      - Gravfreq
+      - Gravimeter
+      - Halloween Eyes
+      - Heartbeat
+      - Hiphotic
+      - ICU
+      - Juggle
+      - Juggles
+      - Julia
+      - Lake
+      - Lighthouse
+      - Lightning
+      - Lissajous
+      - Loading
+      - Matripix
+      - Matrix
+      - Metaballs
+      - Meteor
+      - Meteor Smooth
+      - Midnoise
+      - Multi Comet
+      - Noise 1
+      - Noise 2
+      - Noise 3
+      - Noise 4
+      - Noise Pal
+      - Noise2D
+      - Noisefire
+      - Noisemeter
+      - Noisemove
+      - Octopus
+      - Oscillate
+      - Pacifica
+      - Palette
+      - Percent
+      - Perlin Move
+      - Phased
+      - Phased Noise
+      - Pixels
+      - Pixelwave
+      - Plasma
+      - Plasma Ball
+      - Plasmoid
+      - Polar Lights
+      - Popcorn
+      - Pride 2015
+      - Puddlepeak
+      - Puddles
+      - Pulser
+      - RSVD
+      - RSVD
+      - RSVD
+      - RSVD
+      - RSVD
+      - RSVD
+      - RSVD
+      - RSVD
+      - Railway
+      - Rain
+      - Rainbow
+      - Rainbow Runner
+      - Random Colors
+      - Ripple
+      - Ripple Peak
+      - Ripple Rainbow
+      - Rocktaves
+      - Rolling Balls
+      - Running
+      - Running Dual
+      - Saw
+      - Scan
+      - Scan Dual
+      - Scanner
+      - Scanner Dual
+      - Scrolling Text
+      - Sindots
+      - Sine
+      - Sinelon
+      - Sinelon Dual
+      - Sinelon Rainbow
+      - Soap
+      - Solid
+      - Solid Glitter
+      - Solid Pattern
+      - Solid Pattern Tri
+      - Spaceships
+      - Sparkle
+      - Sparkle Dark
+      - Sparkle+
+      - Spots
+      - Spots Fade
+      - Squared Swirl
+      - Stream
+      - Stream 2
+      - Strobe
+      - Strobe Mega
+      - Strobe Rainbow
+      - Sun Radiation
+      - Sunrise
+      - Sweep
+      - Sweep Random
+      - Swirl
+      - TV Simulator
+      - Tartan
+      - Tetrix
+      - Theater
+      - Theater Rainbow
+      - Traffic Light
+      - Tri Fade
+      - Tri Wipe
+      - Twinkle
+      - Twinklecat
+      - Twinklefox
+      - Twinkleup
+      - Two Dots
+      - Washing Machine
+      - Waterfall
+      - Waverly
+      - Wavesins
+      - Waving Cell
+      - Wipe
+      - Wipe Random
+      supported_color_modes:
+      - rgb
+      effect: Solid
+      color_mode: rgb
+      brightness: 3
+      hs_color:
+      - 30.496
+      - 94.902
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      friendly_name: wledRafael
+      supported_features: 36
+      state: 'on'
+    select.wledrafael_playlist:
+      options: []
+      friendly_name: wledRafael Playlist
+      state: unavailable
+    select.wledrafael_preset:
+      options: []
+      friendly_name: wledRafael Preset
+      state: unavailable
   icon: mdi:lightbulb-auto
+  metadata: {}
 - id: '1651600778354'
   name: 02-G Light to pre-alarm mode
   entities:
@@ -54,4 +277,3 @@
       - 0.32
       state: 'on'
   icon: mdi:lightbulb-auto
-

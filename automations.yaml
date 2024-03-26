@@ -59,8 +59,8 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:20:00
-      light_entity: light.wakeup_light_01r
+      manual_time: 06:25:00
+      light_entity: light.rafael_lights
       sunrise_duration: 15
       end_brightness: 255
       pre_sunrise_actions:
@@ -92,15 +92,17 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:00:00
+    at: 07:10:00
   condition: []
   action:
-  - type: turn_off
-    device_id: 0a96aa6d9a590bab9bf170d253b79ac8
-    entity_id: light.wakeup_light_01r
-    domain: light
   - type: turn_off
     device_id: 131e6b8137a459190bce5c449564c686
     entity_id: light.wakeup_light_02g
     domain: light
+  - service: light.turn_off
+    metadata: {}
+    data:
+      transition: 5
+    target:
+      entity_id: light.rafael_lights
   mode: single

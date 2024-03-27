@@ -83,6 +83,8 @@ influxdb:
       override_measurement: humidity
     sensor.*temperature:
       override_measurement: temperature
+    sensor.*temperature_bmp:
+      override_measurement: temperature
     sensor.*pressure:
       override_measurement: pressure
 

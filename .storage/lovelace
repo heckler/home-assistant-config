@@ -225,32 +225,31 @@
               "name": "Gabriela's Light"
             },
             {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "select.wled_playlist",
-                  "name": "Playlist"
-                },
-                {
-                  "entity": "select.wled_preset",
-                  "name": "Preset"
-                },
-                "light.wled"
-              ],
-              "title": "wled01"
-            },
-            {
-              "type": "light",
-              "entity": "light.wled",
-              "name": "wled01"
-            },
-            {
               "type": "history-graph",
               "entities": [
                 "sensor.balcony_02_temperature_bmp",
                 "sensor.living_room_02_temperature"
               ],
               "hours_to_show": 48
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.wledescritorio_uptime"
+                },
+                {
+                  "entity": "sensor.wledrafael_uptime"
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                "sensor.wledescritorio_uptime_minutes",
+                "sensor.wledrafael_uptime_minutes"
+              ],
+              "hours_to_show": 60
             }
           ],
           "title": "Misc"

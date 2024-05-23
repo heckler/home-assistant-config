@@ -53,6 +53,8 @@ recorder:
       - switch.irrigation_pump_relay
       - switch.fireplace_light_relay
       - sensor.problem_status
+      - sensor.wledescritorio_uptime_minutes
+      - sensor.wledrafael_uptime_minutes
 
 
 
@@ -167,6 +169,32 @@ sensor:
           {% set today_name = sensor_names[now().weekday()] %}
           {% set entity_id = 'input_boolean.gabriela_wakeup_'+today_name %}
           {{ is_state('input_boolean.gabriela_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+
+
+  # converts the date/time uptime from WLed minutes: (for troubleshooting)
+  - platform: template
+    sensors:
+      wledescritorio_uptime_minutes:
+        friendly_name: "WLed Escritorio Uptime in Minutes"
+        value_template: >
+          {% set uptime = states('sensor.wledescritorio_uptime') %}
+          {% set uptime_datetime = as_timestamp(uptime) %}
+          {% set current_datetime = as_timestamp(now()) %}
+          {{ ((current_datetime - uptime_datetime) / 60) | int }}
+        unit_of_measurement: "Minutes"
+  - platform: template
+    sensors:
+      wledrafael_uptime_minutes:
+        friendly_name: "WLed Rafael Uptime in Minutes"
+        value_template: >
+          {% set uptime = states('sensor.wledrafael_uptime') %}
+          {% set uptime_datetime = as_timestamp(uptime) %}
+          {% set current_datetime = as_timestamp(now()) %}
+          {{ ((current_datetime - uptime_datetime) / 60) | int }}
+        unit_of_measurement: "Minutes"
+
+
 
 
 

@@ -59,7 +59,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:30:00
+      manual_time: 06:33:00
       light_entity: light.rafael_lights
       sunrise_duration: 15
       end_brightness: 255
@@ -105,4 +105,16 @@
       transition: 5
     target:
       entity_id: light.rafael_lights
+  mode: single
+- id: '1718114380399'
+  alias: Daily reboot of the host system
+  description: Reboot the host every day, to work around memory issues
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: hassio.host_reboot
+    metadata: {}
+    data: {}
   mode: single

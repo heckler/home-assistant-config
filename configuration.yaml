@@ -119,13 +119,17 @@ sensor:
              is_state('sensor.irrigation_pump_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_01_r_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
+             is_state('sensor.wledescritorio_uptime', 'unavailable') or
+             is_state('sensor.wledrafael_uptime', 'unavailable') or
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.freezer_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.irrigation_pump_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.wake_up_light_01_r_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600)
+             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600) or
+             ( (now() - sensor.wledescritorio_uptime).total_seconds() > 600) or
+             ( (now() - states.sensor.wledrafael_uptime).total_seconds() > 600)
           }}
           {% endif %}
       problem_status:
@@ -147,6 +151,8 @@ sensor:
           Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Wake_up_light_01R: '{% if is_state("sensor.wake_up_light_01_r_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_01_r_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          WLed_Escritorio: '{% if is_state("sensor.wledescritorio_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          WLed_Rafael: '{% if is_state("sensor.wledrafael_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
         friendly_name: Status
 
 

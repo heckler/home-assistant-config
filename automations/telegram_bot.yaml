@@ -35,7 +35,7 @@
       message: System Menu
       data:
         inline_keyboard:
-          - "Status:/status, Core Restart:/restart"
+          - "Status:/status, Host Restart:/restart"
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -164,7 +164,7 @@
 
 
 # ----------------------------------------------------------------------------------------------------
-# Telegram bot command to force a core restart
+# Telegram bot command to force a restart of the host system
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to force a core restart'
   trigger:
@@ -179,6 +179,6 @@
   action:
     - service: notify.telegram
       data_template:
-        message: "Restarting Home Assistant Core ..."
-    - service: homeassistant.restart
+        message: "Restarting the Home Assistant host system ..."
+    - service: hassio.host_reboot
 

@@ -18,8 +18,7 @@
             "sun.sun",
             "sensor.memory_use_percent",
             "sensor.disk_use_percent",
-            "sensor.swap_free",
-            "sensor.cpu_temperature"
+            "sensor.swap_free"
           ],
           "cards": [
             {

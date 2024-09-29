@@ -16,7 +16,8 @@
       message: Control Panel
       data:
         inline_keyboard:
-          - "Temp:/temp, Freezer:/freezer, Ping:/ping, Light:/light, Status:/status"
+          - "Temp:/temp, Freezer:/freezer, States:/states, Light:/light, Status:/status"
+
 
 # ----------------------------------------------------------------------------------------------------
 # System Menu (/system) inline keyboard 
@@ -36,30 +37,6 @@
       data:
         inline_keyboard:
           - "Status:/status, Host Restart:/restart"
-
-
-# ----------------------------------------------------------------------------------------------------
-# IK Ping Pong
-# ----------------------------------------------------------------------------------------------------
-- id: telegram-ik-ping-pong
-  alias: 'telegram ping pong'
-  trigger:
-    - platform: event
-      event_type: telegram_callback
-      event_data:
-        data: '/ping'
-  action:
-    - service: telegram_bot.answer_callback_query
-      data_template:
-        callback_query_id: '{{ trigger.event.data.id }}'
-        message: >-
-          Callback received from {{ trigger.event.data.from_first }}.
-          Message id: {{ trigger.event.data.message.message_id }}.
-          Data: {{ trigger.event.data.data }}
-          {{now().strftime("%H:%M:%S %Y-%m-%d")}} Pong, Message from {{ trigger.event.data["user_id"] }}.
-        show_alert: true
-
-
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -113,6 +90,168 @@
 
 
 # ----------------------------------------------------------------------------------------------------
+# Telegram bot command to reply with the current state of several devices
+# ----------------------------------------------------------------------------------------------------
+- id: telegram-states-command
+  alias: 'Telegram bot command to reply with the current state of several devices'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/states"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/states"
+  action:
+    - service: notify.telegram
+      data_template:
+        message: |-
+          ```
+          +-------------------+
+          |  Current states:  |
+          +-------------------+
+          Fireplace light:  {{ states.switch.fireplace_light_relay.state }}
+          Irrigation pump:  {{ states.switch.irrigation_pump_relay.state }}
+          Wake-up light R:  {{ states.light.wakeup_light_01r.state }}
+          Wake-up light G:  {{ states.light.wakeup_light_02g.state }}
+          WLed Escritorio:  {{ states.light.wledescritorio.state }}
+          WLed Rafael:      {{ states.light.wledrafael.state }}
+          ---------------------
+          ```
+        data:
+           inline_keyboard:
+             - "FP:/toggle_fireplace, WKR:/toggle_wakeup_01R, WKG:/toggle_wakeup_02G, WLE:/toggle_wledescritorio, WLR:/toggle_wledrafael"
+
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the Fireplace light
+# ----------------------------------------------------------------------------------------------------
+- id: toggle-fireplace-light-command
+  alias: 'Telegram bot command to toggle the Fireplace light'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/toggle_fireplace_light"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/toggle_fireplace_light"
+  action:
+    - service: switch.toggle
+      target:
+        entity_id: switch.fireplace_light_relay
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "Fireplace Light is: {{ states.switch.fireplace_light_relay.state }}."
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the Wake-up Light 01R
+# ----------------------------------------------------------------------------------------------------
+- id: toggle-wakeup-01R-command
+  alias: 'Telegram bot command to toggle the Wake-up Light 01R'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/toggle_wakeup_01R"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/toggle_wakeup_01R"
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wakeup_light_01r
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "Wake-up-Light 01R is: {{ states.light.wakeup_light_01r.state }}."
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the Wake-up Light 02G
+# ----------------------------------------------------------------------------------------------------
+- id: toggle-wakeup-02G-command
+  alias: 'Telegram bot command to toggle the Wake-up Light 02G'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/toggle_wakeup_02G"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/toggle_wakeup_02G"
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wakeup_light_02g
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "Wake-up-Light 02G is: {{ states.light.wakeup_light_02g.state }}."
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the WLed-Escritorio
+# ----------------------------------------------------------------------------------------------------
+- id: toggle-wledescritorio-command
+  alias: 'Telegram bot command to toggle the WLed-Escritorio'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/toggle_wledescritorio"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/toggle_wledescritorio"
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wledescritorio
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "WLed-Escritorio is: {{ states.light.wledescritorio.state }}."
+
+
+# ----------------------------------------------------------------------------------------------------
+# Telegram bot command to toggle the WLed-Rafael
+# ----------------------------------------------------------------------------------------------------
+- id: toggle-wledrafael-command
+  alias: 'Telegram bot command to toggle the WLed-Rafael'
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: "/toggle_wledrafael"
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        data: "/toggle_wledrafael"
+  action:
+    - service: light.toggle
+      target:
+        entity_id: light.wledrafael
+    - delay:
+        milliseconds: 100
+    - service: notify.telegram
+      data_template:
+        message: "WLed-Rafael is: {{ states.light.wledrafael.state }}."
+
+
+
+# ----------------------------------------------------------------------------------------------------
 # Telegram bot command to reply with list of tempetarure values
 # ----------------------------------------------------------------------------------------------------
 - alias: 'Telegram bot command to reply with list of tempetarure values'
@@ -138,29 +277,6 @@
           Balcony:      {{ states.sensor.balcony_temperature.state_with_unit }}
           ```
 
-
-# ----------------------------------------------------------------------------------------------------
-# Telegram bot command to toggle the fireplace light
-# ----------------------------------------------------------------------------------------------------
-- alias: 'Telegram bot command to toggle the fireplace light'
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: "/light"
-    - platform: event
-      event_type: telegram_callback
-      event_data:
-        data: "/light"
-  action:
-    - service: switch.toggle
-      target:
-        entity_id: switch.fireplace_light_relay
-    - delay:
-        milliseconds: 100
-    - service: notify.telegram
-      data_template:
-        message: "Fireplace light is: {{ states.switch.fireplace_light_relay.state }}."
 
 
 # ----------------------------------------------------------------------------------------------------

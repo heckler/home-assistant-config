@@ -205,19 +205,6 @@ sensor:
 
 
 # ----------------------------------------------------------------------------------
-# Command-line sensors
-# ----------------------------------------------------------------------------------
-command_line:
-  # CPU temperature, using commmand_line sensor:
-  - sensor:
-      name: CPU Temperature
-      command: 'cat /sys/class/thermal/thermal_zone0/temp'
-      unit_of_measurement: '°C'
-      value_template: '{{ value | multiply(0.001) | round(1) }}'
-
-
-
-# ----------------------------------------------------------------------------------
 # Text to speech
 # ----------------------------------------------------------------------------------
 tts:

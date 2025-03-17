@@ -48,6 +48,7 @@ recorder:
       - sensor.fridge_main_temperature
       - sensor.fridge_freezer_temperature
       - sensor.memory_use_percent
+      - sensor.system_monitor_processor_use
       - light.wakeup_light_01r
       - light.wakeup_light_02g
       - switch.irrigation_pump_relay

@@ -18,6 +18,10 @@
             "sun.sun",
             "sensor.memory_use_percent",
             "sensor.disk_use_percent",
+            {
+              "type": "entity",
+              "entity": "sensor.system_monitor_processor_use"
+            },
             "sensor.swap_free"
           ],
           "cards": [
@@ -112,6 +116,10 @@
               "entities": [
                 {
                   "entity": "sensor.memory_use_percent"
+                },
+                {
+                  "entity": "sensor.system_monitor_processor_use",
+                  "name": "CPU usage"
                 },
                 {
                   "entity": "sensor.freezer_internal_temperature"

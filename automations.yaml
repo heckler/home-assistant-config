@@ -10,15 +10,15 @@
 - id: '1633902903431'
   alias: Irrigation Pump - turn ON
   description: "Activates the \x7Firrigation pump"
-  trigger:
-  - platform: time
-    at: '18:01:00'
-  condition: []
-  action:
-  - service: notify.telegram
-    data:
+  triggers:
+  - at: '18:01:00'
+    trigger: time
+  conditions: []
+  actions:
+  - data:
       title: Irrigation alert
       message: Irrigation will start in 30 seconds
+    action: notify.telegram
   - delay:
       hours: 0
       minutes: 0
@@ -31,8 +31,7 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 10
-      milliseconds: 0
+      seconds: 45
   - type: turn_off
     device_id: 5659a6ebcaae86d3282023e3b2b80bb2
     entity_id: switch.irrigation_pump_relay
@@ -64,10 +63,11 @@
       sunrise_duration: 15
       end_brightness: 255
       pre_sunrise_actions:
-      - service: scene.turn_on
-        target:
+      - target:
           entity_id: scene.01r_light_pre_alarm_mode
         metadata: {}
+        action: scene.turn_on
+        data: {}
       timestamp_sensor: none
       check_entity: sensor.rafael_wakeup_should_run
 - id: '1651602009310'

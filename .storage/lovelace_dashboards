@@ -30,6 +30,15 @@
         "mode": "storage",
         "show_in_sidebar": true,
         "require_admin": false
+      },
+      {
+        "id": "dashboard_areas",
+        "show_in_sidebar": true,
+        "icon": "mdi:home-city",
+        "title": "Areas",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-areas"
       }
     ]
   }

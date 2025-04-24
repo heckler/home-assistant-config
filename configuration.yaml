@@ -98,6 +98,44 @@ influxdb:
 # ----------------------------------------------------------------------------------
 sensor:
 
+  # --------------------------------------------
+  # Statistics derived from other sensor data
+  # --------------------------------------------
+  
+  - platform: statistics
+    name: "Balcony maximum temperature over 24h"
+    entity_id: sensor.balcony_temperature
+    unique_id: balcony_max_temp_24h
+    state_characteristic: value_max
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Balcony minimum temperature over 24h"
+    entity_id: sensor.balcony_temperature
+    unique_id: balcony_min_temp_24h
+    state_characteristic: value_min
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Living Room maximum temperature over 24h"
+    entity_id: sensor.living_room_02_temperature
+    unique_id: living_room_max_temp_24h
+    state_characteristic: value_max
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Living Room minimum temperature over 24h"
+    entity_id: sensor.living_room_02_temperature
+    unique_id: living_room_min_temp_24h
+    state_characteristic: value_min
+    max_age:
+      hours: 24
+
+
+
   # Date/Time sensor is used to allow automation templates which get triggered (re-evaluated) every minute
   - platform: time_date
     display_options:

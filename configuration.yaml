@@ -101,6 +101,8 @@ sensor:
   # --------------------------------------------
   # Statistics derived from other sensor data
   # --------------------------------------------
+
+  # Min/max temperatures, internal and external
   
   - platform: statistics
     name: "Balcony maximum temperature over 24h"
@@ -133,6 +135,42 @@ sensor:
     state_characteristic: value_min
     max_age:
       hours: 24
+
+
+  # Timestamp for when the min/max values last got updated
+  
+  - platform: statistics
+    name: "Balcony maximum temperature timestamp"
+    entity_id: sensor.balcony_temperature
+    unique_id: balcony_max_temp_timestamp
+    state_characteristic: datetime_value_max
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Balcony minimum temperature timestamp"
+    entity_id: sensor.balcony_temperature
+    unique_id: balcony_min_temp_timestamp
+    state_characteristic: datetime_value_min
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Living Room maximum temperature timestamp"
+    entity_id: sensor.living_room_02_temperature
+    unique_id: living_room_max_temp_timestamp
+    state_characteristic: datetime_value_max
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: "Living Room minimum temperature timestamp"
+    entity_id: sensor.living_room_02_temperature
+    unique_id: living_room_min_temp_timestamp
+    state_characteristic: datetime_value_min
+    max_age:
+      hours: 24
+
 
 
 

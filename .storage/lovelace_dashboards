@@ -39,6 +39,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "dashboard-areas"
+      },
+      {
+        "id": "dashboard_radio",
+        "show_in_sidebar": true,
+        "icon": "mdi:radio",
+        "title": "Radio",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-radio"
       }
     ]
   }

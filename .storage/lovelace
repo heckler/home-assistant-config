@@ -50,7 +50,7 @@
               "entities": [
                 {
                   "entity": "sensor.balcony_temperature",
-                  "name": "Balcony temperature"
+                  "name": "Balcony temp"
                 },
                 {
                   "entity": "sensor.balcony_02_pressure",
@@ -58,10 +58,10 @@
                 },
                 {
                   "entity": "sensor.balcony_02_temperature_bmp",
-                  "name": "Living room temperature"
+                  "name": "Living room temp"
                 }
               ],
-              "hours_to_show": 96,
+              "hours_to_show": 144,
               "refresh_interval": 0,
               "type": "history-graph"
             },
@@ -133,6 +133,27 @@
               "showAzimuth": true,
               "showElevation": true,
               "timeFormat": "24h"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "sensor.balcony_maximum_temperature_over_24h",
+                  "name": "Balcony max temp"
+                },
+                {
+                  "entity": "sensor.balcony_minimum_temperature_over_24h",
+                  "name": "Balcony min temp"
+                },
+                {
+                  "entity": "sensor.living_room_maximum_temperature_over_24h",
+                  "name": "Living room temp max"
+                },
+                {
+                  "entity": "sensor.living_room_minimum_temperature_over_24h",
+                  "name": "Living room temp min"
+                }
+              ]
             }
           ],
           "panel": false,

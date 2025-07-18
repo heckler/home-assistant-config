@@ -192,14 +192,12 @@ sensor:
              is_state('sensor.balcony_uptime', 'unavailable') or 
              is_state('sensor.balcony_02_uptime', 'unavailable') or 
              is_state('sensor.fireplace_light_uptime', 'unavailable') or 
-             is_state('sensor.freezer_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_01_r_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
              is_state('sensor.wledescritorio_uptime', 'unavailable') or
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.freezer_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.wake_up_light_01_r_uptime).total_seconds() > 600) or
              ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600) or
              ( (now() - sensor.wledescritorio_uptime).total_seconds() > 600)

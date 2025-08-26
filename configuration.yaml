@@ -286,6 +286,10 @@ tts:
 
 # ----------------------------------------------------------------------------------
 # Notification settings
+#
+# NOTE: make sure the Telegram Bot integration in the UI is configured in
+# 'pooliong'  mode, or else the telegram bot automations will not work properly
+#
 # ----------------------------------------------------------------------------------
 notify:
 

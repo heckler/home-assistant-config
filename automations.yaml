@@ -118,3 +118,20 @@
     metadata: {}
     data: {}
   mode: single
+- id: '1756409157193'
+  alias: Turn off WakeUpLight_01R when wledRafael is turned off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - light.wledrafael
+    from: 'on'
+    to: 'off'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.wakeup_light_01r
+  mode: single

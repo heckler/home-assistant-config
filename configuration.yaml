@@ -56,6 +56,8 @@ recorder:
       - sensor.problem_status
       - sensor.wledescritorio_uptime_minutes
       - sensor.wledrafael_uptime_minutes
+      - sensor.waze_travel_time_home_to_work
+      - sensor.waze_travel_time_work_to_home
 
 
 
@@ -81,6 +83,8 @@ influxdb:
       - sensor.freezer_external_temperature
       - sensor.fridge_main_temperature
       - sensor.fridge_freezer_temperature
+      - sensor.waze_travel_time_home_to_work
+      - sensor.waze_travel_time_work_to_home
   component_config_glob:
     sensor.*humidity:
       override_measurement: humidity

@@ -120,9 +120,6 @@
                 {
                   "entity": "sensor.system_monitor_processor_use",
                   "name": "CPU usage"
-                },
-                {
-                  "entity": "sensor.freezer_internal_temperature"
                 }
               ],
               "hours_to_show": 120,
@@ -154,6 +151,20 @@
                   "name": "Living room temp min"
                 }
               ]
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.waze_travel_time_home_to_work",
+                  "name": "To work"
+                },
+                {
+                  "entity": "sensor.waze_travel_time_work_to_home",
+                  "name": "To home"
+                }
+              ],
+              "title": "Travel time"
             }
           ],
           "panel": false,
@@ -278,6 +289,20 @@
                 "sensor.wledrafael_uptime_minutes"
               ],
               "hours_to_show": 60
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.waze_travel_time_home_to_work",
+                  "name": "To work"
+                },
+                {
+                  "entity": "sensor.waze_travel_time_work_to_home",
+                  "name": "To home"
+                }
+              ],
+              "title": "Travel time"
             }
           ],
           "title": "Misc"

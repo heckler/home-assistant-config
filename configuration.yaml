@@ -58,6 +58,8 @@ recorder:
       - sensor.wledrafael_uptime_minutes
       - sensor.waze_travel_time_home_to_work
       - sensor.waze_travel_time_work_to_home
+      - sensor.balcony_maximum_temperature_over_24h
+      - sensor.balcony_minimum_temperature_over_24h
 
 
 # ----------------------------------------------------------------------------------
@@ -84,6 +86,8 @@ influxdb:
       - sensor.fridge_freezer_temperature
       - sensor.waze_travel_time_home_to_work
       - sensor.waze_travel_time_work_to_home
+      - sensor.balcony_maximum_temperature_over_24h
+      - sensor.balcony_minimum_temperature_over_24h
   component_config_glob:
     sensor.*humidity:
       override_measurement: humidity

@@ -7,8 +7,8 @@
 !*.md
 
 # Ignore folders.
-.storage
 .cloud
+.storage/*
 .google.token
 tts
 

@@ -22,6 +22,7 @@ known_devices.yaml
 home-assistant.log
 home-assistant_v2.db
 glances/*
+.ha_run.lock
 
 home-assistant_v2.db-shm
 home-assistant_v2.db-wal

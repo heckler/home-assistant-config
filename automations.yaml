@@ -30,8 +30,9 @@
     domain: switch
   - delay:
       hours: 0
-      minutes: 0
-      seconds: 45
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   - type: turn_off
     device_id: 5659a6ebcaae86d3282023e3b2b80bb2
     entity_id: switch.irrigation_pump_relay
@@ -58,7 +59,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: 06:33:00
+      manual_time: 06:00:00
       light_entity: light.rafael_lights
       sunrise_duration: 15
       end_brightness: 255

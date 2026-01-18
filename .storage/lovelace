@@ -49,19 +49,23 @@
             {
               "entities": [
                 {
+                  "entity": "sensor.balcony_minimum_temperature_over_24h",
+                  "name": "min 24h"
+                },
+                {
                   "entity": "sensor.balcony_temperature",
-                  "name": "Balcony temp"
+                  "name": "External temp"
+                },
+                {
+                  "entity": "sensor.balcony_maximum_temperature_over_24h",
+                  "name": "max 24h"
                 },
                 {
                   "entity": "sensor.balcony_02_pressure",
                   "name": "Balcony pressure"
-                },
-                {
-                  "entity": "sensor.balcony_02_temperature_bmp",
-                  "name": "Living room temp"
                 }
               ],
-              "hours_to_show": 144,
+              "hours_to_show": 96,
               "refresh_interval": 0,
               "type": "history-graph"
             },
@@ -303,6 +307,21 @@
                 }
               ],
               "title": "Travel time"
+            },
+            {
+              "chart_type": "line",
+              "period": "day",
+              "type": "statistics-graph",
+              "entities": [
+                "sensor.waze_travel_time_home_to_work",
+                "sensor.waze_travel_time_work_to_home"
+              ],
+              "days_to_show": 14,
+              "stat_types": [
+                "mean",
+                "max",
+                "min"
+              ]
             }
           ],
           "title": "Misc"

@@ -1,241 +1,210 @@
 - id: '1651535514012'
   name: 01-R Light to pre-alarm mode
   entities:
-    light.wakeup_light_01r:
-      effect_list:
-      - None
-      - Pulse
-      - Random
-      - Strobe
-      - Flicker
-      supported_color_modes:
-      - rgbww
-      effect: None
-      color_mode: rgbww
-      brightness: 3
-      hs_color:
-      - 9.533
-      - 83.922
-      rgb_color:
-      - 255
-      - 75
-      - 41
-      xy_color:
-      - 0.654
-      - 0.32
-      rgbww_color:
-      - 255
-      - 7
-      - 0
-      - 5
-      - 179
-      friendly_name: wakeup_light_01r
-      supported_features: 44
-      state: 'on'
     light.wledrafael:
       effect_list:
-      - Akemi
-      - Android
-      - Aurora
-      - Black Hole
-      - Blends
+      - Solid
       - Blink
-      - Blink Rainbow
-      - Blobs
-      - Blurz
-      - Bouncing Balls
-      - Bpm
       - Breathe
-      - Candle
-      - Candle Multi
-      - Chase
-      - Chase 2
-      - Chase 3
-      - Chase Flash
-      - Chase Flash Rnd
-      - Chase Rainbow
-      - Chase Random
-      - Chunchun
-      - Colored Bursts
-      - Colorful
+      - Wipe
+      - Wipe Random
+      - Random Colors
+      - Sweep
+      - Dynamic
       - Colorloop
-      - Colortwinkles
-      - Colorwaves
-      - Crazy Bees
-      - DJ Light
-      - DNA
-      - DNA Spiral
-      - Dancing Shadows
+      - Rainbow
+      - Scan
+      - Scan Dual
+      - Fade
+      - Theater
+      - Theater Rainbow
+      - Running
+      - Saw
+      - Twinkle
       - Dissolve
       - Dissolve Rnd
-      - Distortion Waves
-      - Drift
-      - Drift Rose
-      - Drip
-      - Dynamic
-      - Dynamic Smooth
-      - Fade
-      - Fairy
-      - Fairytwinkle
-      - Fill Noise
-      - Fire 2012
-      - Fire Flicker
-      - Firenoise
-      - Fireworks
-      - Fireworks 1D
-      - Fireworks Starburst
-      - Flow
-      - Flow Stripe
-      - Freqmap
-      - Freqmatrix
-      - Freqpixels
-      - Freqwave
-      - Frizzles
-      - Funky Plank
-      - GEQ
-      - Game Of Life
-      - Ghost Rider
-      - Glitter
-      - Gradient
-      - Gravcenter
-      - Gravcentric
-      - Gravfreq
-      - Gravimeter
-      - Halloween Eyes
-      - Heartbeat
-      - Hiphotic
-      - ICU
-      - Juggle
-      - Juggles
-      - Julia
-      - Lake
+      - Sparkle
+      - Sparkle Dark
+      - Sparkle+
+      - Strobe
+      - Strobe Rainbow
+      - Strobe Mega
+      - Blink Rainbow
+      - Android
+      - Chase
+      - Chase Random
+      - Chase Rainbow
+      - Chase Flash
+      - Chase Flash Rnd
+      - Rainbow Runner
+      - Colorful
+      - Traffic Light
+      - Sweep Random
+      - Chase 2
+      - Aurora
+      - Stream
+      - Scanner
       - Lighthouse
-      - Lightning
-      - Lissajous
+      - Fireworks
+      - Rain
+      - Tetrix
+      - Fire Flicker
+      - Gradient
       - Loading
-      - Matripix
-      - Matrix
-      - Metaballs
-      - Meteor
-      - Meteor Smooth
-      - Midnoise
+      - Rolling Balls
+      - Fairy
+      - Two Dots
+      - Fairytwinkle
+      - Running Dual
+      - RSVD
+      - Chase 3
+      - Tri Wipe
+      - Tri Fade
+      - Lightning
+      - ICU
       - Multi Comet
+      - Scanner Dual
+      - Stream 2
+      - Oscillate
+      - Pride 2015
+      - Juggle
+      - Palette
+      - Fire 2012
+      - Colorwaves
+      - Bpm
+      - Fill Noise
       - Noise 1
       - Noise 2
       - Noise 3
       - Noise 4
-      - Noise Pal
-      - Noise2D
-      - Noisefire
-      - Noisemeter
-      - Noisemove
-      - Octopus
-      - Oscillate
-      - Pacifica
-      - Palette
-      - Percent
-      - Perlin Move
-      - Phased
-      - Phased Noise
-      - Pixels
-      - Pixelwave
-      - Plasma
-      - Plasma Ball
-      - Plasmoid
-      - Polar Lights
-      - Popcorn
-      - Pride 2015
-      - Puddlepeak
-      - Puddles
-      - Pulser
-      - RSVD
-      - RSVD
-      - RSVD
-      - RSVD
-      - RSVD
-      - RSVD
-      - RSVD
-      - RSVD
+      - Colortwinkles
+      - Lake
+      - Meteor
+      - Meteor Smooth
       - Railway
-      - Rain
-      - Rainbow
-      - Rainbow Runner
-      - Random Colors
       - Ripple
-      - Ripple Peak
-      - Ripple Rainbow
-      - Rocktaves
-      - Rolling Balls
-      - Running
-      - Running Dual
-      - Saw
-      - Scan
-      - Scan Dual
-      - Scanner
-      - Scanner Dual
-      - Scrolling Text
-      - Sindots
-      - Sine
+      - Twinklefox
+      - Twinklecat
+      - Halloween Eyes
+      - Solid Pattern
+      - Solid Pattern Tri
+      - Spots
+      - Spots Fade
+      - Glitter
+      - Candle
+      - Fireworks Starburst
+      - Fireworks 1D
+      - Bouncing Balls
       - Sinelon
       - Sinelon Dual
       - Sinelon Rainbow
-      - Soap
-      - Solid
+      - Popcorn
+      - Drip
+      - Plasma
+      - Percent
+      - Ripple Rainbow
+      - Heartbeat
+      - Pacifica
+      - Candle Multi
       - Solid Glitter
-      - Solid Pattern
-      - Solid Pattern Tri
-      - Spaceships
-      - Sparkle
-      - Sparkle Dark
-      - Sparkle+
-      - Spots
-      - Spots Fade
-      - Squared Swirl
-      - Stream
-      - Stream 2
-      - Strobe
-      - Strobe Mega
-      - Strobe Rainbow
-      - Sun Radiation
       - Sunrise
-      - Sweep
-      - Sweep Random
-      - Swirl
-      - TV Simulator
-      - Tartan
-      - Tetrix
-      - Theater
-      - Theater Rainbow
-      - Traffic Light
-      - Tri Fade
-      - Tri Wipe
-      - Twinkle
-      - Twinklecat
-      - Twinklefox
+      - Phased
       - Twinkleup
-      - Two Dots
+      - Noise Pal
+      - Sine
+      - Phased Noise
+      - Flow
+      - Chunchun
+      - Dancing Shadows
       - Washing Machine
-      - Waterfall
-      - Waverly
-      - Wavesins
+      - Rotozoomer
+      - Blends
+      - TV Simulator
+      - Dynamic Smooth
+      - Spaceships
+      - Crazy Bees
+      - Ghost Rider
+      - Blobs
+      - Scrolling Text
+      - Drift Rose
+      - Distortion Waves
+      - Soap
+      - Octopus
       - Waving Cell
-      - Wipe
-      - Wipe Random
+      - Pixels
+      - Pixelwave
+      - Juggles
+      - Matripix
+      - Gravimeter
+      - Plasmoid
+      - Puddles
+      - Midnoise
+      - Noisemeter
+      - Freqwave
+      - Freqmatrix
+      - GEQ
+      - Waterfall
+      - Freqpixels
+      - RSVD
+      - Noisefire
+      - Puddlepeak
+      - Noisemove
+      - Noise2D
+      - Perlin Move
+      - Ripple Peak
+      - Firenoise
+      - Squared Swirl
+      - RSVD
+      - DNA
+      - Matrix
+      - Metaballs
+      - Freqmap
+      - Gravcenter
+      - Gravcentric
+      - Gravfreq
+      - DJ Light
+      - Funky Plank
+      - RSVD
+      - Pulser
+      - Blurz
+      - Drift
+      - Waverly
+      - Sun Radiation
+      - Colored Bursts
+      - Julia
+      - RSVD
+      - RSVD
+      - RSVD
+      - Game Of Life
+      - Tartan
+      - Polar Lights
+      - Swirl
+      - Lissajous
+      - Frizzles
+      - Plasma Ball
+      - Flow Stripe
+      - Hiphotic
+      - Sindots
+      - DNA Spiral
+      - Black Hole
+      - Wavesins
+      - Rocktaves
+      - Akemi
       supported_color_modes:
       - rgb
       effect: Solid
       color_mode: rgb
       brightness: 3
       hs_color:
-      - 30.496
-      - 94.902
+      - 40.421
+      - 37.255
       rgb_color:
       - 255
-      - 136
-      - 13
+      - 224
+      - 160
       xy_color:
-      - 0.599
-      - 0.382
+      - 0.411
+      - 0.392
       friendly_name: wledRafael
       supported_features: 36
       state: 'on'
@@ -244,9 +213,12 @@
       friendly_name: wledRafael Playlist
       state: unavailable
     select.wledrafael_preset:
-      options: []
+      options:
+      - Plasma
+      - Plasma
+      - Plasma
       friendly_name: wledRafael Preset
-      state: unavailable
+      state: unknown
   icon: mdi:lightbulb-auto
   metadata: {}
 - id: '1651600778354'

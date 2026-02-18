@@ -51,6 +51,7 @@ recorder:
       - sensor.system_monitor_processor_use
       - light.wakeup_light_01r
       - light.wakeup_light_02g
+      - light.wakeup_light_03c
       - switch.irrigation_pump_relay
       - switch.fireplace_light_relay
       - sensor.problem_status
@@ -199,15 +200,17 @@ sensor:
              is_state('sensor.balcony_uptime', 'unavailable') or 
              is_state('sensor.balcony_02_uptime', 'unavailable') or 
              is_state('sensor.fireplace_light_uptime', 'unavailable') or 
-             is_state('sensor.wake_up_light_01_r_uptime', 'unavailable') or 
              is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
+             is_state('sensor.wake_up_light_03_c_uptime', 'unavailable') or
              is_state('sensor.wledescritorio_uptime', 'unavailable') or
+             is_state('sensor.wledrafael_uptime', 'unavailable') or
              ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
              ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.fireplace_light_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_01_r_uptime).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_02_g_uptime).total_seconds() > 600) or
-             ( (now() - sensor.wledescritorio_uptime).total_seconds() > 600)
+             ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) or
+             ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) or
+             ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) or
+             ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 600) or
+             ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 600)
           }}
           {% endif %}
       problem_status:
@@ -227,8 +230,8 @@ sensor:
           Fireplace_light: '{% if is_state("sensor.fireplace_light_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Freezer: '{% if is_state("sensor.freezer_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.freezer_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Wake_up_light_01R: '{% if is_state("sensor.wake_up_light_01_r_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_01_r_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+          Wake_up_light_03C: '{% if is_state("sensor.wake_up_light_03_c_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
           WLed_Escritorio: '{% if is_state("sensor.wledescritorio_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
           WLed_Rafael: '{% if is_state("sensor.wledrafael_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
         friendly_name: Status

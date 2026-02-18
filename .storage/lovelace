@@ -76,8 +76,8 @@
               "type": "glance",
               "entities": [
                 {
-                  "entity": "light.wakeup_light_01r",
-                  "name": "01-R",
+                  "entity": "light.wakeup_light_02g",
+                  "name": "02-G",
                   "tap_action": {
                     "action": "toggle"
                   },
@@ -86,8 +86,8 @@
                   }
                 },
                 {
-                  "entity": "light.wakeup_light_02g",
-                  "name": "02-G",
+                  "entity": "light.wakeup_light_03c",
+                  "name": "03-C",
                   "tap_action": {
                     "action": "toggle"
                   },

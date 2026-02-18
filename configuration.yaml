@@ -403,6 +403,14 @@ input_boolean:
   gabriela_wakeup_friday:
   gabriela_wakeup_saturday:
   gabriela_wakeup_sunday:
+  claudio_wakeup_enabled:
+  claudio_wakeup_monday:
+  claudio_wakeup_tuesday:
+  claudio_wakeup_wednesday:
+  claudio_wakeup_thursday:
+  claudio_wakeup_friday:
+  claudio_wakeup_saturday:
+  claudio_wakeup_sunday:
 
 # time of the wake-up alarms
 input_datetime:
@@ -414,5 +422,7 @@ input_datetime:
     name: Gabriela Wake-up time
     has_date: false
     has_time: true
-
-
+  claudio_wakeup_alarm_time:
+    name: Claudio Wake-up time
+    has_date: false
+    has_time: true

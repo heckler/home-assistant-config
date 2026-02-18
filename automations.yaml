@@ -59,7 +59,7 @@
   use_blueprint:
     path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
     input:
-      manual_time: '16:00:00'
+      manual_time: 06:00:00
       light_entity: light.rafael_lights
       sunrise_duration: 15
       end_brightness: 255

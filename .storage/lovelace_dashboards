@@ -48,6 +48,15 @@
         "require_admin": false,
         "mode": "storage",
         "url_path": "dashboard-radio"
+      },
+      {
+        "id": "dashboard_claudio",
+        "show_in_sidebar": true,
+        "title": "Claudio",
+        "require_admin": false,
+        "mode": "storage",
+        "url_path": "dashboard-claudio",
+        "icon": "mdi:account"
       }
     ]
   }

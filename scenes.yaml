@@ -249,3 +249,27 @@
       - 0.32
       state: 'on'
   icon: mdi:lightbulb-auto
+- id: '1771443446069'
+  name: 03-C Light to pre-alarm mode
+  entities:
+    light.wakeup_light_03c:
+      effect_list:
+      - None
+      - Pulse
+      - Random
+      - Strobe
+      - Flicker
+      supported_color_modes:
+      - rgbww
+      effect:
+      color_mode:
+      brightness:
+      hs_color:
+      rgb_color:
+      xy_color:
+      rgbww_color:
+      friendly_name: Wakeup Light 03C wakeup_light_03c
+      supported_features: 44
+      state: 'off'
+  icon: mdi:lightbulb-auto
+  metadata: {}

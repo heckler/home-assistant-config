@@ -89,23 +89,28 @@
       timestamp_sensor: none
       check_entity: sensor.gabriela_wakeup_should_run
 - id: '1653415482777'
-  alias: Wake up lights - turn them both off
+  alias: Wake up lights - turn them all off
   description: ''
-  trigger:
-  - platform: time
-    at: 07:10:00
-  condition: []
-  action:
+  triggers:
+  - at: 07:10:00
+    trigger: time
+  conditions: []
+  actions:
   - type: turn_off
     device_id: 131e6b8137a459190bce5c449564c686
     entity_id: light.wakeup_light_02g
     domain: light
-  - service: light.turn_off
-    metadata: {}
+  - metadata: {}
     data:
       transition: 5
     target:
       entity_id: light.rafael_lights
+    action: light.turn_off
+  - action: light.turn_off
+    metadata: {}
+    target:
+      device_id: 0a96aa6d9a590bab9bf170d253b79ac8
+    data: {}
   mode: single
 - id: '1718114380399'
   alias: Daily reboot of the host system
@@ -136,3 +141,20 @@
     target:
       entity_id: light.wakeup_light_01r
   mode: single
+- id: '1771443101236'
+  alias: Wake-up light alarm [03-C]
+  description: ''
+  use_blueprint:
+    path: sbyx/wake-up-light-alarm-with-sunrise-effect.yaml
+    input:
+      light_entity: light.wakeup_light_03c
+      check_entity: sensor.claudio_wakeup_should_run
+      sunrise_duration: 20
+      end_brightness: 255
+      manual_time: '17:00:00'
+      pre_sunrise_actions:
+      - action: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.03_c_light_to_pre_alarm_mode
+        data: {}

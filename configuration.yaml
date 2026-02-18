@@ -257,6 +257,15 @@ sensor:
           {% set entity_id = 'input_boolean.gabriela_wakeup_'+today_name %}
           {{ is_state('input_boolean.gabriela_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
 
+  # determine if Claudio's wake-up light should run today:
+  - platform: template
+    sensors:
+      claudio_wakeup_should_run:
+        value_template:  >
+          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+          {% set today_name = sensor_names[now().weekday()] %}
+          {% set entity_id = 'input_boolean.claudio_wakeup_'+today_name %}
+          {{ is_state('input_boolean.claudio_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
 
 
   # converts the date/time uptime from WLed minutes: (for troubleshooting)

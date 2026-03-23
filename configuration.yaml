@@ -190,109 +190,6 @@ sensor:
     - "date"
 
 
-# availability-based indication of problems with the sensors
-  - platform: template
-    sensors:
-      problem_check:
-        value_template: >-
-          {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
-          {{ 
-             is_state('sensor.balcony_uptime', 'unavailable') or 
-             is_state('sensor.balcony_02_uptime', 'unavailable') or 
-             is_state('sensor.fireplace_light_uptime', 'unavailable') or 
-             is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
-             is_state('sensor.wake_up_light_03_c_uptime', 'unavailable') or
-             is_state('sensor.wledescritorio_uptime', 'unavailable') or
-             is_state('sensor.wledrafael_uptime', 'unavailable') or
-             ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 600) or
-             ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 600)
-          }}
-          {% endif %}
-      problem_status:
-        value_template: >-
-          {% if states.sensor.problem_check %}
-             {% if states.sensor.problem_check.state == "True" %}
-                Problem
-             {% else %}
-                Ok
-             {% endif %}
-          {% else %}
-            N/A
-          {% endif %}
-        attribute_templates:
-          Balcony_01: '{% if is_state("sensor.balcony_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}' 
-          Balcony_02: '{% if is_state("sensor.balcony_02_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Fireplace_light: '{% if is_state("sensor.fireplace_light_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Freezer: '{% if is_state("sensor.freezer_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.freezer_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          Wake_up_light_03C: '{% if is_state("sensor.wake_up_light_03_c_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
-          WLed_Escritorio: '{% if is_state("sensor.wledescritorio_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
-          WLed_Rafael: '{% if is_state("sensor.wledrafael_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
-        friendly_name: Status
-
-
-  # determine if Rafael's wake-up light should run today:
-  - platform: template
-    sensors:
-      rafael_wakeup_should_run:
-        value_template:  >
-          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
-          {% set today_name = sensor_names[now().weekday()] %}
-          {% set entity_id = 'input_boolean.rafael_wakeup_'+today_name %}
-          {{ is_state('input_boolean.rafael_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
-
-  # determine if Gabriela's wake-up light should run today:
-  - platform: template
-    sensors:
-      gabriela_wakeup_should_run:
-        value_template:  >
-          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
-          {% set today_name = sensor_names[now().weekday()] %}
-          {% set entity_id = 'input_boolean.gabriela_wakeup_'+today_name %}
-          {{ is_state('input_boolean.gabriela_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
-
-  # determine if Claudio's wake-up light should run today:
-  - platform: template
-    sensors:
-      claudio_wakeup_should_run:
-        value_template:  >
-          {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
-          {% set today_name = sensor_names[now().weekday()] %}
-          {% set entity_id = 'input_boolean.claudio_wakeup_'+today_name %}
-          {{ is_state('input_boolean.claudio_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
-
-
-  # converts the date/time uptime from WLed minutes: (for troubleshooting)
-  - platform: template
-    sensors:
-      wledescritorio_uptime_minutes:
-        friendly_name: "WLed Escritorio Uptime in Minutes"
-        value_template: >
-          {% set uptime = states('sensor.wledescritorio_uptime') %}
-          {% set uptime_datetime = as_timestamp(uptime) %}
-          {% set current_datetime = as_timestamp(now()) %}
-          {{ ((current_datetime - uptime_datetime) / 60) | int }}
-        unit_of_measurement: "Minutes"
-  - platform: template
-    sensors:
-      wledrafael_uptime_minutes:
-        friendly_name: "WLed Rafael Uptime in Minutes"
-        value_template: >
-          {% set uptime = states('sensor.wledrafael_uptime') %}
-          {% set uptime_datetime = as_timestamp(uptime) %}
-          {% set current_datetime = as_timestamp(now()) %}
-          {{ ((current_datetime - uptime_datetime) / 60) | int }}
-        unit_of_measurement: "Minutes"
-
-
-
-
 
 # ----------------------------------------------------------------------------------
 # Text to speech
@@ -336,18 +233,6 @@ scene: !include scenes.yaml
 
 binary_sensor:
   
-  # Binary sensor for high freezer temperature
-  - platform: template
-    sensors:
-      freezer_is_warm:
-        friendly_name: "Freezer temperature too high"
-        value_template: >-
-           {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
-           {{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}
-           {% else %} 
-           {{ False }}
-           {% endif %}
-
 
 # ----------------------------------------------------------------------------------
 # Alerts
@@ -435,3 +320,123 @@ input_datetime:
     name: Claudio Wake-up time
     has_date: false
     has_time: true
+
+
+# ----------------------------------------------------------------------------------
+# Templated sensors' platform (introduced 2026)
+# ----------------------------------------------------------------------------------
+
+template:
+
+# determine if Claudio's wake-up light should run today:
+- sensor:
+  - default_entity_id: sensor.claudio_wakeup_should_run
+    name: claudio_wakeup_should_run
+    state:  >
+      {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+      {% set today_name = sensor_names[now().weekday()] %}
+      {% set entity_id = 'input_boolean.claudio_wakeup_'+today_name %}
+      {{ is_state('input_boolean.claudio_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+
+# determine if Rafael's wake-up light should run today:
+- sensor:
+  - default_entity_id: sensor.rafael_wakeup_should_run
+    name: rafael_wakeup_should_run
+    state:  >
+      {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+      {% set today_name = sensor_names[now().weekday()] %}
+      {% set entity_id = 'input_boolean.rafael_wakeup_'+today_name %}
+      {{ is_state('input_boolean.rafael_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+# determine if Gabriela's wake-up light should run today:
+- sensor:
+  - default_entity_id: sensor.gabriela_wakeup_should_run
+    name: gabriela_wakeup_should_run
+    state:  >
+      {% set sensor_names = [ 'monday', 'tuesday', 'wednesday','thursday','friday','saturday','sunday'] %}
+      {% set today_name = sensor_names[now().weekday()] %}
+      {% set entity_id = 'input_boolean.gabriela_wakeup_'+today_name %}
+      {{ is_state('input_boolean.gabriela_wakeup_enabled', 'on') and is_state(entity_id, 'on') }}
+
+# converts the date/time uptime from WLed minutes: (for troubleshooting)
+- sensor:
+  - default_entity_id: sensor.wledescritorio_uptime_minutes
+    name: WLed Escritorio Uptime in Minutes
+    state: >
+      {% set uptime = states('sensor.wledescritorio_uptime') %}
+      {% set uptime_datetime = as_timestamp(uptime) %}
+      {% set current_datetime = as_timestamp(now()) %}
+      {{ ((current_datetime - uptime_datetime) / 60) | int }}
+    unit_of_measurement: "Minutes"
+- sensor:
+  - default_entity_id: sensor.wledrafael_uptime_minutes
+    name: WLed Rafael Uptime in Minutes
+    state: >
+      {% set uptime = states('sensor.wledrafael_uptime') %}
+      {% set uptime_datetime = as_timestamp(uptime) %}
+      {% set current_datetime = as_timestamp(now()) %}
+      {{ ((current_datetime - uptime_datetime) / 60) | int }}
+    unit_of_measurement: "Minutes"
+
+# Binary sensor for high freezer temperature
+- binary_sensor:
+  - default_entity_id: binary_sensor.freezer_is_warm
+    name: Freezer temperature too high
+    state: >
+      {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
+      {{ float(states.sensor.freezer_internal_temperature.state) > -10.0 }}
+      {% else %} 
+      {{ False }}
+      {% endif %}
+
+# Availability-based sensor to check if any of the critical entities are unavailable or stale (not updated for more than 10 minutes)
+- sensor:
+  - default_entity_id: sensor.problem_check
+    name: problem_check
+    state: >-
+      {% if ((as_timestamp(now()) - as_timestamp(states('sensor.uptime'))) > 60) %}
+      {{ 
+          is_state('sensor.balcony_uptime', 'unavailable') or 
+          is_state('sensor.balcony_02_uptime', 'unavailable') or 
+          is_state('sensor.fireplace_light_uptime', 'unavailable') or 
+          is_state('sensor.wake_up_light_02_g_uptime', 'unavailable') or 
+          is_state('sensor.wake_up_light_03_c_uptime', 'unavailable') or
+          is_state('sensor.wledescritorio_uptime', 'unavailable') or
+          is_state('sensor.wledrafael_uptime', 'unavailable') or
+          ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 600) or
+          ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 600)
+      }}
+      {% endif %}
+
+# Availability-based sensor to provide a more detailed status of the critical entities (OK, Unavailable, Stale)
+- sensor:
+  - default_entity_id: sensor.problem_status
+    name: Status
+    attributes:
+      Balcony_01: '{% if is_state("sensor.balcony_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}' 
+      Balcony_02: '{% if is_state("sensor.balcony_02_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.balcony_02_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      Fireplace_light: '{% if is_state("sensor.fireplace_light_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.fireplace_light_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      Freezer: '{% if is_state("sensor.freezer_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.freezer_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      Irrigation_pump: '{% if is_state("sensor.irrigation_pump_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.irrigation_pump_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      Wake_up_light_02G: '{% if is_state("sensor.wake_up_light_02_g_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_02_g_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      Wake_up_light_03C: '{% if is_state("sensor.wake_up_light_03_c_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wake_up_light_03_c_uptime.last_updated).total_seconds() > 600) %} Stale {% else %} OK {% endif %} {% endif %}'
+      WLed_Escritorio: '{% if is_state("sensor.wledescritorio_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledescritorio_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
+      WLed_Rafael: '{% if is_state("sensor.wledrafael_uptime", "unavailable") %} Unavailable {% else %} {% if ( (now() - states.sensor.wledrafael_uptime.last_updated).total_seconds() > 1200) %} Stale {% else %} OK {% endif %} {% endif %}'
+    state: >-
+      {% if states.sensor.problem_check %}
+          {% if states.sensor.problem_check.state == "True" %}
+            Problem
+          {% else %}
+            Ok
+          {% endif %}
+      {% else %}
+        N/A
+      {% endif %}
+
+

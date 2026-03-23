@@ -196,15 +196,15 @@
       color_mode: rgb
       brightness: 3
       hs_color:
-      - 40.421
-      - 37.255
+      - 30.622
+      - 94.51
       rgb_color:
       - 255
-      - 224
-      - 160
+      - 137
+      - 14
       xy_color:
-      - 0.411
-      - 0.392
+      - 0.598
+      - 0.383
       friendly_name: wledRafael
       supported_features: 36
       state: 'on'

@@ -37,14 +37,7 @@
                   }
                 },
                 {
-                  "entity": "light.wakeup_light_01r",
-                  "name": "Room light",
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "double_tap_action": {
-                    "action": "more-info"
-                  }
+                  "entity": "light.wledrafael"
                 }
               ]
             },
@@ -62,7 +55,7 @@
             },
             {
               "type": "light",
-              "entity": "light.wakeup_light_01r",
+              "entity": "light.wledrafael",
               "double_tap_action": {
                 "action": "more-info"
               },

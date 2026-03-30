@@ -11,12 +11,11 @@
     event_data:
       command: '/cp'
   action:
-  - service: notify.telegram
+  - action: telegram_bot.send_message
     data:
       message: Control Panel
-      data:
-        inline_keyboard:
-          - "Temp:/temp, Freezer:/freezer, States:/states, Light:/light, Status:/status"
+      inline_keyboard:
+        - "Temp:/temp, Freezer:/freezer, States:/states, Light:/light, Status:/status"
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -31,12 +30,11 @@
     event_data:
       command: '/system'
   action:
-  - service: notify.telegram
+  - action: telegram_bot.send_message
     data:
       message: System Menu
-      data:
-        inline_keyboard:
-          - "Status:/status, Host Restart:/restart"
+      inline_keyboard:
+        - "Status:/status, Host Restart:/restart"
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -53,8 +51,8 @@
       event_data:
         data: "/freezer"
   action:
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }} ({{ relative_time(states.sensor.freezer_internal_temperature.last_changed) }} ago)"
 
 
@@ -73,8 +71,8 @@
       event_data:
         data: "/status"
   action:
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: |-
           ```
           +---------------------------+
@@ -104,8 +102,8 @@
       event_data:
         data: "/states"
   action:
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: |-
           ```
           +-------------------+
@@ -119,9 +117,8 @@
           WLed Rafael:      {{ states.light.wledrafael.state }}
           ---------------------
           ```
-        data:
-           inline_keyboard:
-             - "FP:/toggle_fireplace, WKR:/toggle_wakeup_01R, WKG:/toggle_wakeup_02G, WLE:/toggle_wledescritorio, WLR:/toggle_wledrafael"
+        inline_keyboard:
+          - "FP:/toggle_fireplace, WKR:/toggle_wakeup_01R, WKG:/toggle_wakeup_02G, WLE:/toggle_wledescritorio, WLR:/toggle_wledrafael"
 
 
 
@@ -145,8 +142,8 @@
         entity_id: switch.fireplace_light_relay
     - delay:
         milliseconds: 100
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "Fireplace Light is: {{ states.switch.fireplace_light_relay.state }}."
 
 
@@ -170,8 +167,8 @@
         entity_id: light.wakeup_light_01r
     - delay:
         milliseconds: 100
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "Wake-up-Light 01R is: {{ states.light.wakeup_light_01r.state }}."
 
 
@@ -195,8 +192,8 @@
         entity_id: light.wakeup_light_02g
     - delay:
         milliseconds: 100
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "Wake-up-Light 02G is: {{ states.light.wakeup_light_02g.state }}."
 
 
@@ -220,8 +217,8 @@
         entity_id: light.wledescritorio
     - delay:
         milliseconds: 100
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "WLed-Escritorio is: {{ states.light.wledescritorio.state }}."
 
 
@@ -245,8 +242,8 @@
         entity_id: light.wledrafael
     - delay:
         milliseconds: 100
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "WLed-Rafael is: {{ states.light.wledrafael.state }}."
 
 
@@ -265,8 +262,8 @@
       event_data:
         data: "/temp"
   action:
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: |-
           ```
           Current temperatures:
@@ -293,8 +290,8 @@
       event_data:
         data: "/restart"
   action:
-    - service: notify.telegram
-      data_template:
+    - action: telegram_bot.send_message
+      data:
         message: "Restarting the Home Assistant host system ..."
     - service: hassio.host_reboot
 

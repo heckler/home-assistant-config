@@ -15,10 +15,10 @@
     trigger: time
   conditions: []
   actions:
-  - data:
+  - action: telegram_bot.send_message
+    data:
       title: Irrigation alert
       message: Irrigation will start in 30 seconds
-    action: telegram_bot.send_message
   - delay:
       hours: 0
       minutes: 0

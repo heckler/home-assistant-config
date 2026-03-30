@@ -27,8 +27,8 @@
       - service: notify.notify
         data_template:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
-      - telegram_bot.send_message:
-        data_template:
+      - action: telegram_bot.send_message
+        data:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
   # ----------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@
      - platform: homeassistant
        event: start
     action:
-      - telegram_bot.send_message:
+      - action: telegram_bot.send_message
         data:
           message: 'Home assistant has started'
 

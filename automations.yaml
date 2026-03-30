@@ -18,7 +18,7 @@
   - data:
       title: Irrigation alert
       message: Irrigation will start in 30 seconds
-    action: notify.telegram
+    action: telegram_bot.send_message
   - delay:
       hours: 0
       minutes: 0

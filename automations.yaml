@@ -152,7 +152,7 @@
       check_entity: sensor.claudio_wakeup_should_run
       sunrise_duration: 20
       end_brightness: 140
-      manual_time: 05:40:00
+      manual_time: 05:50:00
       pre_sunrise_actions:
       - action: scene.turn_on
         metadata: {}

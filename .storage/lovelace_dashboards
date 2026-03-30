@@ -57,6 +57,15 @@
         "mode": "storage",
         "url_path": "dashboard-claudio",
         "icon": "mdi:account"
+      },
+      {
+        "id": "lovelace",
+        "icon": "mdi:view-dashboard",
+        "title": "Overview",
+        "url_path": "lovelace",
+        "mode": "storage",
+        "require_admin": false,
+        "show_in_sidebar": true
       }
     ]
   }

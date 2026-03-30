@@ -32,3 +32,5 @@ home-assistant.log*
 
 image/*
 
+.cache/*
+

@@ -163,15 +163,26 @@
   alias: Shutdown Synology After Extended Power Loss
   description: Shutdown Synology After Extended Power Loss
   triggers:
-  - entity_id: binary_sensor.ups_power_monitor
-    to: 'off'
+  - entity_id:
+    - binary_sensor.ups_power_monitor
+    to:
+    - 'off'
     for:
+      hours: 0
       minutes: 10
+      seconds: 0
     trigger: state
   conditions:
+  - condition: template
+    value_template: '{{ (now() - states(''sensor.uptime'') | as_datetime).total_seconds()
+      > 1800 }}
+
+      '
+    alias: If HA has been up for over 30min already
   - condition: state
     entity_id: binary_sensor.ups_power_monitor
     state: 'off'
+    alias: If UPS Power Monitor is still Disconnected
   actions:
   - target:
       entity_id: button.synology_shutdown

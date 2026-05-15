@@ -159,3 +159,23 @@
         target:
           entity_id: scene.03_c_light_to_pre_alarm_mode
         data: {}
+- id: '1778869990580'
+  alias: Shutdown Synology After Extended Power Loss
+  description: Shutdown Synology After Extended Power Loss
+  triggers:
+  - entity_id: binary_sensor.ups_power_monitor
+    to: 'off'
+    for:
+      minutes: 10
+    trigger: state
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.ups_power_monitor
+    state: 'off'
+  actions:
+  - target:
+      entity_id: button.synology_shutdown
+    action: button.press
+    data: {}
+    alias: Shutdown Synology
+  mode: single

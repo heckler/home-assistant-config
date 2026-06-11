@@ -13,9 +13,14 @@
   triggers:
   - at: '18:01:00'
     trigger: time
-  conditions: []
+  conditions:
+  - condition: template
+    value_template: '# run on alternate days (even day-of-the-year)
+
+      {{ now().timetuple().tm_yday % 2 == 0 }}'
   actions:
   - action: telegram_bot.send_message
+    entity_id: notify.telegram_bot_1713675885_1542036602
     data:
       title: Irrigation alert
       message: Irrigation will start in 30 seconds

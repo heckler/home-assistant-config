@@ -28,6 +28,7 @@
         data_template:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
       - action: telegram_bot.send_message
+        entity_id: notify.telegram_bot_1713675885_1542036602
         data:
           message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
@@ -41,6 +42,7 @@
        event: start
     action:
       - action: telegram_bot.send_message
+        entity_id: notify.telegram_bot_1713675885_1542036602
         data:
           message: 'Home assistant has started'
 

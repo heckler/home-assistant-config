@@ -12,6 +12,7 @@
       command: '/cp'
   action:
   - action: telegram_bot.send_message
+    entity_id: notify.telegram_bot_1713675885_1542036602
     data:
       message: Control Panel
       inline_keyboard:
@@ -31,6 +32,7 @@
       command: '/system'
   action:
   - action: telegram_bot.send_message
+    entity_id: notify.telegram_bot_1713675885_1542036602
     data:
       message: System Menu
       inline_keyboard:
@@ -52,6 +54,7 @@
         data: "/freezer"
   action:
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "Freezer temperature: {{ states.sensor.freezer_internal_temperature.state_with_unit }} ({{ relative_time(states.sensor.freezer_internal_temperature.last_changed) }} ago)"
 
@@ -72,6 +75,7 @@
         data: "/status"
   action:
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: |-
           ```
@@ -103,6 +107,7 @@
         data: "/states"
   action:
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: |-
           ```
@@ -143,6 +148,7 @@
     - delay:
         milliseconds: 100
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "Fireplace Light is: {{ states.switch.fireplace_light_relay.state }}."
 
@@ -168,6 +174,7 @@
     - delay:
         milliseconds: 100
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "Wake-up-Light 01R is: {{ states.light.wakeup_light_01r.state }}."
 
@@ -193,6 +200,7 @@
     - delay:
         milliseconds: 100
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "Wake-up-Light 02G is: {{ states.light.wakeup_light_02g.state }}."
 
@@ -218,6 +226,7 @@
     - delay:
         milliseconds: 100
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "WLed-Escritorio is: {{ states.light.wledescritorio.state }}."
 
@@ -243,6 +252,7 @@
     - delay:
         milliseconds: 100
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "WLed-Rafael is: {{ states.light.wledrafael.state }}."
 
@@ -263,6 +273,7 @@
         data: "/temp"
   action:
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: |-
           ```
@@ -291,6 +302,7 @@
         data: "/restart"
   action:
     - action: telegram_bot.send_message
+      entity_id: notify.telegram_bot_1713675885_1542036602
       data:
         message: "Restarting the Home Assistant host system ..."
     - service: hassio.host_reboot
